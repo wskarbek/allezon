@@ -3,22 +3,32 @@ body {
 }
 
 page {
-    padding-top: 5%;
+    padding-top: 10%;
 }
 
 form {
     margin: auto;
-    padding-top: 15px;
-    width: 40%;
+    padding-left: 3%;
+    width: 30%;
     border: 3px solid black;
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
 input[type=text], input[type=password] {
-    width: 70%;
-    padding: 12px 18px;
+    align: center;
+    width: 94%;
+    padding: 15px 18px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+banner {
+    height: 5%;
+}
+
+logo {
+    height: 100%;
+    text-align: center;
 }
