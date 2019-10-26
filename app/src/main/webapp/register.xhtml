@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
 >
     <h:head>
         <h:outputStylesheet name="main.css" library="css"/>
@@ -17,18 +18,30 @@
         </div>
         <div id="page">
             <h:form>
-                <p>Full name</p>
-                <h:inputText id="nameField" pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$" value="#{registerRequest.fullName}"/>
-                <p>Username</p>
-                <h:inputText id="usernameField" value="#{registerRequest.username}"/>
-                <p>E-mail</p>
-                <h:inputText id="emailField" value="#{registerRequest.email}"/>
-                <p>Password</p>
-                <h:inputSecret id="passField" value="#{registerRequest.password}"/>
-                <p>Repeat password</p>
-                <h:inputSecret id="passCheckField" value="#{registerRequest.passwordCheck}"/>
+                <h:outputLabel value = "Name:">
+                    <h:inputText id="nameField" value="#{registerRequest.name}">
+                        <f:validateRegex pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"/>
+                    </h:inputText>
+                </h:outputLabel>
+                <h:outputLabel value = "Surname:">
+                    <h:inputText id="surnameField" value="#{registerRequest.surname}">
+                        <f:validateRegex pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"/>
+                    </h:inputText>
+                </h:outputLabel>
+                <h:outputLabel value = "Username:">
+                    <h:inputText id="usernameField" value="#{registerRequest.username}"></h:inputText>
+                </h:outputLabel>
+                <h:outputLabel value = "Email:">
+                    <h:inputText id="emailField" value="#{registerRequest.email}"></h:inputText>
+                </h:outputLabel>
+                <h:outputLabel value = "Password:">
+                    <h:inputSecret id="passField" value="#{registerRequest.password}"></h:inputSecret>
+                </h:outputLabel>
+                <h:outputLabel value = "Repeat password:">
+                    <h:inputSecret id="passCheckField" value="#{registerRequest.passwordCheck}"></h:inputSecret>
+                </h:outputLabel>
                 <p></p>
-                <h:commandButton value="Register" action="#{registerController.register}"/>
+                <h:commandButton id="button" value="Register" action="#{registerController.register}"></h:commandButton>
             </h:form>
         </div>
     </h:body>

@@ -39,3 +39,12 @@ input[type=text], input[type=password] {
     border: 2px solid black;
     border-radius: 5px;
 }
+
+/*https://stackoverflow.com/questions/3313383/jsf-commandbutton-styling*/
+button{
+    background-color: lightsteelblue;
+    border: 2px solid black;
+    color: #121843;
+    text-align: center;
+    font-size: 12px;
+}
