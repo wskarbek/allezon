@@ -18,11 +18,17 @@
         <div id="page">
             <h:form>
                 <p>Full name</p>
-                <h:inputText id="loginField" value="#{loginRequest.username}"/>
+                <h:inputText id="nameField" pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$" value="#{registerRequest.fullName}"/>
+                <p>Username</p>
+                <h:inputText id="usernameField" value="#{registerRequest.username}"/>
+                <p>E-mail</p>
+                <h:inputText id="emailField" value="#{registerRequest.email}"/>
                 <p>Password</p>
-                <h:inputSecret id="passField" value="#{loginRequest.password}"/>
+                <h:inputSecret id="passField" value="#{registerRequest.password}"/>
+                <p>Repeat password</p>
+                <h:inputSecret id="passCheckField" value="#{registerRequest.passwordCheck}"/>
                 <p></p>
-                <h:commandButton value="Login" action="#{loginController.login}"/>
+                <h:commandButton value="Register" action="#{registerController.register}"/>
             </h:form>
         </div>
     </h:body>
