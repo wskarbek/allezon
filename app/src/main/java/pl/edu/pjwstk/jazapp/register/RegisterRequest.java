@@ -26,6 +26,7 @@ public class RegisterRequest {
     public String getPasswordCheck() { return passwordCheck; }
     public void setPasswordCheck(String passwordCheck) { this.passwordCheck = passwordCheck; }
 
+
     @Override
     public String toString() {
         return "RegisterRequest{" +
