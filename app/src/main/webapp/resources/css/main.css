@@ -1,18 +1,31 @@
 body {
-    background-color: #333333;
+    padding-top: 50px;
+    background-color: azure;
 }
 
-page {
-    padding-top: 10%;
+#page {
+    text-align: center;
+    padding-top: 50px;
 }
 
 form {
     margin: auto;
-    padding-left: 3%;
-    padding-bottom: 20px;
-    width: 30%;
+    padding: 40px 3%;
+    width: 300px;
+    color: #121843;
+    background-color: lightsteelblue;
     border: 3px solid black;
+    border-radius: 8px;
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+#accounts {
+    font-size: 12px;
+}
+
+a:link{
+    color: #3a24a8;
+    text-decoration: none;
 }
 
 input[type=text], input[type=password] {
@@ -24,6 +37,6 @@ input[type=text], input[type=password] {
     border-radius: 5px;
 }
 
-logo {
-    height: 200px;
+#banner {
+    text-align: center;
 }

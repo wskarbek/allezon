@@ -13,7 +13,7 @@
 
     <h:body>
         <div id="banner">
-            <img id="logo" src="resources/images/logo.png" alt="logo"/>
+            <img src="resources/images/logo.png" alt="logo"/>
         </div>
         <div id="page">
             <h:form>
@@ -23,6 +23,9 @@
                 <h:inputSecret id="passField" value="#{loginRequest.password}"/>
                 <p></p>
                 <h:commandButton value="Login" action="#{loginController.login}"/>
+                <div id="accounts">
+                    <p>You don't have an account? <a href="register.xhtml">You can register here.</a></p>
+                </div>
             </h:form>
         </div>
     </h:body>
