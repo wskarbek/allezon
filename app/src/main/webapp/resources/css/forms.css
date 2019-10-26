@@ -40,11 +40,21 @@ input[type=text], input[type=password] {
     border-radius: 5px;
 }
 
-/*https://stackoverflow.com/questions/3313383/jsf-commandbutton-styling*/
-button{
-    background-color: lightsteelblue;
+/*https://stackoverflow.com/questions/3313383/jsf-commandbutton-styling
+https://www.w3schools.com/howto/howto_css_animate_buttons.asp*/
+.button{
+    background-color: #7489a3;
     border: 2px solid black;
+    border-radius: 5px;
     color: #121843;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #a6c1dc;
+}
+
+.button:active {
+    background-color: #414d64;
 }
