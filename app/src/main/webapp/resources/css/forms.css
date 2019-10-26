@@ -1,0 +1,41 @@
+#banner {
+    text-align: center;
+}
+
+body {
+    padding-top: 30px;
+}
+
+#page {
+    text-align: center;
+    padding-top: 30px;
+}
+
+form {
+    margin: auto;
+    padding: 30px 3%;
+    width: 300px;
+    color: #121843;
+    background-color: lightsteelblue;
+    border: 3px solid black;
+    border-radius: 8px;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+#accounts {
+    font-size: 12px;
+}
+
+a:link{
+    color: #3a24a8;
+    text-decoration: none;
+}
+
+input[type=text], input[type=password] {
+    width: 94%;
+    height: 32px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 5px;
+}

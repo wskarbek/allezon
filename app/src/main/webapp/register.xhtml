@@ -8,6 +8,7 @@
 >
     <h:head>
         <h:outputStylesheet name="main.css" library="css"/>
+        <h:outputStylesheet name="forms.css" library="css"/>
     </h:head>
 
     <h:body>
@@ -16,7 +17,7 @@
         </div>
         <div id="page">
             <h:form>
-                <p>Login</p>
+                <p>Full name</p>
                 <h:inputText id="loginField" value="#{loginRequest.username}"/>
                 <p>Password</p>
                 <h:inputSecret id="passField" value="#{loginRequest.password}"/>
