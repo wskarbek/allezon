@@ -42,9 +42,9 @@
                     <h:inputSecret id="passField" value="#{registerRequest.password}"></h:inputSecret>
                 </h:outputLabel>
 
-                <h:outputLabel value = "Repeat password:">
-                    <h:inputSecret id="passCheckField" value="#{registerRequest.passwordCheck}"></h:inputSecret>
-                </h:outputLabel>
+                <!--<h:outputLabel value = "Repeat password:">
+                    <h:inputSecret id="passCheckField" value="#{registerRequest.password}"></h:inputSecret>
+                </h:outputLabel>-->
                 <p></p>
                 <h:commandButton styleClass="button" value="Register" action="#{registerController.register}"></h:commandButton>
                 <div id="accounts">
