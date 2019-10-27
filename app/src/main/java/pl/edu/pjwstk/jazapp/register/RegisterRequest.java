@@ -8,7 +8,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class RegisterRequest {
-    private String username, password, passwordCheck, name, surname, email;
+    private String username, password, name, surname, email;
 
     public String getUsername() {
         return username;

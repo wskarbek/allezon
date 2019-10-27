@@ -1,14 +1,13 @@
 package pl.edu.pjwstk.jazapp.login;
 
+import pl.edu.pjwstk.jazapp.accounts.Account;
+import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
+import pl.edu.pjwstk.jazapp.accounts.WebSession;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import pl.edu.pjwstk.jazapp.accounts.Account;
-import pl.edu.pjwstk.jazapp.accounts.Session;
-import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
-
 import java.io.IOException;
 
 @Named
@@ -21,7 +20,7 @@ public class LoginController {
     private UsersDatabase usersDatabase;
 
     @Inject
-    private Session session;
+    private WebSession session;
 
     //@Inject
     //private ProfileRepository profileRepository;

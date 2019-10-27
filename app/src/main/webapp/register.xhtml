@@ -4,7 +4,6 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
 >
     <h:head>
@@ -20,34 +19,43 @@
             <h:form>
                 <h3>Register</h3>
                 <h:outputLabel value = "Name:">
-                    <h:inputText id="nameField" value="#{registerRequest.name}">
-                        <f:validateRegex pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"/>
+                    <h:inputText id="nameField" requried="true" value="#{registerRequest.name}">
+                        <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                        <f:validateLength minimum="3" maximum="50"/>
                     </h:inputText>
                     <h:message for="nameField"/>
                 </h:outputLabel>
-
                 <h:outputLabel value = "Surname:">
-                    <h:inputText id="surnameField" value="#{registerRequest.surname}">
-                        <f:validateRegex pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"/>
+                    <h:inputText id="surnameField" requried="true" value="#{registerRequest.surname}">
+                        <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                        <f:validateLength minimum="3" maximum="50"/>
                     </h:inputText>
                     <h:message for="surnameField"/>
                 </h:outputLabel>
-
                 <h:outputLabel value = "Username:">
-                    <h:inputText id="usernameField" value="#{registerRequest.username}"></h:inputText>
+                    <h:inputText id="usernameField" requried="true" value="#{registerRequest.username}">
+                        <f:validateRegex pattern="^[a-z0-9]+$"/>
+                    </h:inputText>
+                    <h:message for="usernameField"/>
                 </h:outputLabel>
-
                 <h:outputLabel value = "Email:">
-                    <h:inputText id="emailField" value="#{registerRequest.email}"></h:inputText>
+                    <h:inputText id="emailField" requried="true" value="#{registerRequest.email}">
+                        <!--https://www.regextester.com/97668-->
+                        <f:validateRegex pattern="^[^@]+@[^\.]+\..+$"/>
+                    </h:inputText>
+                    <h:message for="emailField"/>
                 </h:outputLabel>
-
                 <h:outputLabel value = "Password:">
-                    <h:inputSecret id="passField" value="#{registerRequest.password}"></h:inputSecret>
+                    <h:inputSecret id="passField" requried="true" value="#{registerRequest.password}" match="passCheckField">
+                        <f:validateLength minimum="5" maximum="30"/>
+                    </h:inputSecret>
+                    <h:message for="passField"/>
                 </h:outputLabel>
-
-                <!--<h:outputLabel value = "Repeat password:">
-                    <h:inputSecret id="passCheckField" value="#{registerRequest.password}"></h:inputSecret>
-                </h:outputLabel>-->
+                <h:outputLabel value = "Repeat password:">
+                    <h:inputSecret id="passCheckField" requried="true" value="#{registerRequest.password}">
+                        <f:validateLength minimum="5" maximum="30"/>
+                    </h:inputSecret>
+                </h:outputLabel>
                 <p/>
                 <h:commandButton styleClass="button" value="Register" action="#{registerController.register}"></h:commandButton>
                 <div id="accounts">

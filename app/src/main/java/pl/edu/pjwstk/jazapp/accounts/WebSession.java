@@ -1,18 +1,29 @@
 package pl.edu.pjwstk.jazapp.accounts;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 
+@Named
 @SessionScoped
-public class Session implements Serializable {
+public class WebSession implements Serializable {
     private boolean session = false;
     private Account loggedUser;
+
+    private String name = "";
+
+    public String getName() {
+        return name;
+    }
 
     public Account getLoggedUser() {
         return loggedUser;
     }
 
+    public String getUsername() { return loggedUser.getUsername(); }
+
     public void setLoggedUser(Account loggedUser) {
         this.loggedUser = loggedUser;
+        name = loggedUser.getUsername();
     }
 }

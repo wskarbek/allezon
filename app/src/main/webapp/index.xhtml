@@ -3,9 +3,9 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-    <html xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:h="http://java.sun.com/jsf/html"
-          xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+>
 
     <h:head>
         <title>Allezon</title>
@@ -13,8 +13,12 @@
     </h:head>
     <div id="banner">
         <img src="resources/images/logo.png" alt="logo"/>
+        <p><a href="login.xhtml">Log in</a>  <a href="register.xhtml">Sign in</a></p>
     </div>
     <h:body>
-        <h2>Witaj w aplikacji!!</h2>
+        <h2>Witaj w <h:outputText value="#{msg['jaz.app.name']}"/>
+             <h:outputText value="#{webSession.name}"/>
+            !
+        </h2>
     </h:body>
 </html>
