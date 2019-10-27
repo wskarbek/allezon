@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.webapp;
+package pl.edu.pjwstk.jazapp.accounts;
 
 public class Account {
     private String username, password, name, surname, email;

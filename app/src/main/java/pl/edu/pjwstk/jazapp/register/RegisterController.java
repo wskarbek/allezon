@@ -1,7 +1,7 @@
-package pl.edu.pjwstk.jazapp.webapp;
+package pl.edu.pjwstk.jazapp.register;
 
 import pl.edu.pjwstk.jazapp.register.RegisterRequest;
-import pl.edu.pjwstk.jazapp.webapp.UsersDatabase;
+import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

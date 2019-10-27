@@ -1,6 +1,6 @@
 package pl.edu.pjwstk.jazapp.register;
 
-import pl.edu.pjwstk.jazapp.webapp.Account;
+import pl.edu.pjwstk.jazapp.accounts.Account;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

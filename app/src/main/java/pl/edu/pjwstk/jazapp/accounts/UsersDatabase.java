@@ -1,10 +1,8 @@
-package pl.edu.pjwstk.jazapp.webapp;
+package pl.edu.pjwstk.jazapp.accounts;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
-
-import pl.edu.pjwstk.jazapp.register.RegisterRequest;
 
 @ApplicationScoped
 public class UsersDatabase {

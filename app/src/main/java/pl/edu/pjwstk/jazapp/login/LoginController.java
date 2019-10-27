@@ -1,11 +1,11 @@
-package pl.edu.pjwstk.jazapp.webapp;
+package pl.edu.pjwstk.jazapp.login;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import pl.edu.pjwstk.jazapp.login.LoginRequest;
-import pl.edu.pjwstk.jazapp.webapp.UsersDatabase;
+import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
 
 @Named
 @RequestScoped
