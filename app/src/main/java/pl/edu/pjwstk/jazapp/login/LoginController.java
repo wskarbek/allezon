@@ -1,11 +1,15 @@
 package pl.edu.pjwstk.jazapp.login;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pl.edu.pjwstk.jazapp.login.LoginRequest;
+import pl.edu.pjwstk.jazapp.accounts.Account;
+import pl.edu.pjwstk.jazapp.accounts.Session;
 import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
+
+import java.io.IOException;
 
 @Named
 @RequestScoped
@@ -16,13 +20,22 @@ public class LoginController {
     @Inject
     private UsersDatabase usersDatabase;
 
+    @Inject
+    private Session session;
+
     //@Inject
     //private ProfileRepository profileRepository;
 
-    public void login() {
+    public void login() throws IOException {
         System.out.println("Tried to log in using " + loginRequest.toString());
-
-        usersDatabase.checkUser(loginRequest.getUsername(), loginRequest.getPassword());
+        Account acc = usersDatabase.getAndCheckUser(loginRequest.getUsername(), loginRequest.getPassword());
+        if(acc != null){
+            session.setLoggedUser(acc);
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().redirect("/app");
+        } else {
+            //TODO: Couldn't login error
+        }
         //profileRepository.sampleCodeWithPC();
     }
 }

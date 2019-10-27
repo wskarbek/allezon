@@ -18,16 +18,19 @@
         </div>
         <div id="page">
             <h:form>
+                <h3>Register</h3>
                 <h:outputLabel value = "Name:">
                     <h:inputText id="nameField" value="#{registerRequest.name}">
                         <f:validateRegex pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"/>
                     </h:inputText>
+                    <h:message for="nameField"/>
                 </h:outputLabel>
 
                 <h:outputLabel value = "Surname:">
                     <h:inputText id="surnameField" value="#{registerRequest.surname}">
                         <f:validateRegex pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"/>
                     </h:inputText>
+                    <h:message for="surnameField"/>
                 </h:outputLabel>
 
                 <h:outputLabel value = "Username:">
@@ -45,7 +48,7 @@
                 <!--<h:outputLabel value = "Repeat password:">
                     <h:inputSecret id="passCheckField" value="#{registerRequest.password}"></h:inputSecret>
                 </h:outputLabel>-->
-                <p></p>
+                <p/>
                 <h:commandButton styleClass="button" value="Register" action="#{registerController.register}"></h:commandButton>
                 <div id="accounts">
                     <p>You already have an account?<a href="login.xhtml"> You can login here.</a></p>

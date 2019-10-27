@@ -26,14 +26,6 @@ public class RegisterRequest {
         this.password = password;
     }
 
-    /*public String getPasswordCheck() {
-        return passwordCheck;
-    }
-
-    public void setPasswordCheck(String passwordCheck) {
-        this.passwordCheck = passwordCheck;
-    }*/
-
     public String getName() {
         return name;
     }
@@ -56,10 +48,6 @@ public class RegisterRequest {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void addToDB() {
-
     }
 
     public Account toAccount() {

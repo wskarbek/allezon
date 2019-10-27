@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
 >
 
     <h:head>
@@ -18,12 +19,19 @@
         </div>
         <div id="page">
             <h:form>
-                <p>Login</p>
-                <h:inputText id="loginField" value="#{loginRequest.username}"/>
-                <p>Password</p>
-                <h:inputSecret id="passField" value="#{loginRequest.password}"/>
-                <p></p>
-                <h:commandButton value="Login" action="#{loginController.login}"/>
+                <h3>Please log in to access this page</h3>
+                <h:outputLabel value = "Login">
+                    <h:inputText id="loginField" value="#{loginRequest.username}">
+                        <f:validateRegex pattern="^[a-z]+$"/>
+                    </h:inputText>
+                    <h:message for="loginField"/>
+                </h:outputLabel>
+                <h:outputLabel value = "Password">
+                    <h:inputSecret id="passField" value="#{loginRequest.password}">
+                    </h:inputSecret>
+                    <h:message for="passField"/>
+                </h:outputLabel>
+                <h:commandButton styleClass="button" value="Login" action="#{loginController.login}"/>
                 <div id="accounts">
                     <p>You don't have an account? <a href="register.xhtml"> You can register here.</a></p>
                 </div>

@@ -6,31 +6,34 @@ import java.util.List;
 
 @ApplicationScoped
 public class UsersDatabase {
-    List<Account> database = new ArrayList<Account>();
+    private final List<Account> database = new ArrayList<Account>();
 
-    public Account getUser(int id) {
-        return database.get(id);
-    }
+    /*public Account getUser(String username) {
+        for (Account a : database) {
+
+        }
+    }*/
 
     public void registerUser(Account account) {
         database.add(account);
     }
 
-    public boolean checkUser(String username, String password) {
+    public Account getAndCheckUser(String username, String password) {
+        if (database.size() == 0) System.out.println("Database is empty!");
         for (Account a : database) {
             if(a.getUsername().equals(username)) {
                 if(a.getPassword().equals(password)) {
                     System.out.println("User logged in as " + a.getUsername());
-                    return true;
+                    return a;
                 } else {
                     System.out.println("Wrong password");
-                    return false;
+                    return null;
                 }
             } else {
                 System.out.println("User doesn't exist");
-                return false;
+                return null;
             }
         }
-        return false;
+        return null;
     }
 }
