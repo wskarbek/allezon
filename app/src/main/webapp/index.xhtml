@@ -16,7 +16,9 @@
         <p><a href="login.xhtml">Log in</a>  <a href="register.xhtml">Sign in</a></p>
     </div>
     <h:body>
-        <h2>Witaj w <h:outputText value="#{msg['jaz.app.name']}"/>
+        <h2>
+            <h:outputText value="#{msg['allezon.welcome']}"/>
+            <h:outputText value="#{msg['allezon.name']}"/>
             <h:outputText value=" #{webSession.name}"/>
             !
         </h2>
