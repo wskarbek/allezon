@@ -5,22 +5,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
 >
 
     <h:head>
         <title>Allezon</title>
-        <h:outputStylesheet name="main.css" library="css"/>
     </h:head>
-    <div id="banner">
-        <img src="resources/images/logo.png" alt="logo"/>
-        <p><a href="login.xhtml">Log in</a>  <a href="register.xhtml">Sign in</a></p>
-    </div>
     <h:body>
-        <h2>
-            <h:outputText value="#{msg['allezon.welcome']}"/>
-            <h:outputText value="#{msg['allezon.name']}"/>
-            <h:outputText value=" #{webSession.name}"/>
-            !
-        </h2>
+        <ui:composition template="/template/common/template.xhtml">
+            <ui:define name="content">
+                <div id="welcome">
+                    <p><a href="login.xhtml">Log in</a>  <a href="register.xhtml">Sign in</a></p>
+                    <h2>
+                        <h:outputText value="#{msg['allezon.welcome']}"/>
+                        <h:outputText value="#{msg['allezon.name']}"/>
+                        <h:outputText value=" #{webSession.name}"/>
+                        !
+                    </h2>
+                </div>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>

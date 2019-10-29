@@ -9,16 +9,14 @@
 >
 
     <!--https://www.mkyong.com/jsf2/jsf-2-templating-with-facelets-example/-->
+    <h:head>
+        <title>Allezon</title>
+    </h:head>
     <h:body>
         <ui:composition template="/template/common/template.xhtml">
-            <ui:define name="header">
-                <!--Not used in forms-->
-            </ui:define>
+
             <ui:define name="content">
                 <div id="content">
-                    <div id="banner">
-                        <img src="resources/images/logo.png" alt="logo"/>
-                    </div>
                     <div id="form">
                         <h:form>
                             <h3>Register</h3>
