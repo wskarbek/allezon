@@ -8,7 +8,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class RegisterRequest {
-    private String username, password, name, surname, email;
+    private String username, password, name, surname, email, birthday;
 
     public String getUsername() {
         return username;
@@ -50,6 +50,10 @@ public class RegisterRequest {
         this.email = email;
     }
 
+    public String getBirthday() { return birthday; }
+
+    public void setBirthday(String birthday) { this.birthday = birthday; }
+
     public Account toAccount() {
         Account acc = new Account();
         acc.setUsername(username);
@@ -57,6 +61,7 @@ public class RegisterRequest {
         acc.setName(name);
         acc.setSurname(surname);
         acc.setEmail(email);
+        acc.setBirthday(birthday);
         return acc;
     }
 
@@ -65,9 +70,9 @@ public class RegisterRequest {
         return "RegisterRequest{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                //", passwordCheck='" + passwordCheck + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", birthday='" + birthday + '\'' +
                 ", email='" + email + '\'' +
                 ",}";
     }

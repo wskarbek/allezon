@@ -1,8 +1,7 @@
 package pl.edu.pjwstk.jazapp.accounts;
 
 public class Account {
-    private String username, password, name, surname, email;
-    //TODO: Add birthdate
+    private String username, password, name, surname, email, birthday;
 
     public String getUsername() {
         return username;
@@ -43,4 +42,8 @@ public class Account {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getBirthday() { return birthday; }
+
+    public void setBirthday(String birthday) { this.birthday = birthday; }
 }

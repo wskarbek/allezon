@@ -6,6 +6,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 >
 
     <!--https://www.mkyong.com/jsf2/jsf-2-templating-with-facelets-example/-->
@@ -46,6 +47,13 @@
                                     <f:validateRegex pattern="^[^@]+@[^\.]+\..+$"/>
                                 </h:inputText>
                                 <h:message for="emailField"/>
+                            </h:outputLabel>
+                            <!--https://www.regextester.com/96683-->
+                            <!--https://stackoverflow.com/questions/8494264/how-to-add-placeholder-attribute-to-jsf-input-component-->
+                            <h:outputLabel value = "Birthday:">
+                                <h:inputText a:placeholder="yyyy-mm-dd" id="birthdayField" required="true" value="#{registerRequest.birthday}">
+                                    <f:validateRegex pattern="^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$"/>
+                                </h:inputText>
                             </h:outputLabel>
                             <h:outputLabel value = "Password:">
                                 <h:inputSecret id="passField" requried="true" value="#{registerRequest.password}" match="passCheckField">
