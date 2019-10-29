@@ -2,18 +2,13 @@
     text-align: center;
 }
 
-body {
-    padding-top: 30px;
-}
-
 #page {
     text-align: center;
-    padding-top: 30px;
 }
 
 form {
     margin: auto;
-    padding: 30px 3%;
+    padding: 30px 0%;
     width: 300px;
     color: #121843;
     background-color: lightsteelblue;

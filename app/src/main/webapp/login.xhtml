@@ -7,13 +7,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
 >
-
     <h:head>
         <h:outputStylesheet name="main.css" library="css"/>
         <h:outputStylesheet name="forms.css" library="css"/>
     </h:head>
-
     <h:body>
+        <ui:composition template="/template/common/template.xhtml"/>
+        <ui:define name="header">
+
+        </ui:define>
         <div id="banner">
             <img src="resources/images/logo.png" alt="logo"/>
         </div>
