@@ -12,32 +12,37 @@
         <h:outputStylesheet name="forms.css" library="css"/>
     </h:head>
     <h:body>
-        <ui:composition template="/template/common/template.xhtml"/>
-        <ui:define name="header">
-
-        </ui:define>
-        <div id="banner">
-            <img src="resources/images/logo.png" alt="logo"/>
-        </div>
-        <div id="page">
-            <h:form>
-                <h3>Please log in to access this page</h3>
-                <h:outputLabel value = "Login">
-                    <h:inputText id="loginField" value="#{loginRequest.username}">
-                        <f:validateRegex pattern="^[a-z]+$"/>
-                    </h:inputText>
-                    <h:message for="loginField"/>
-                </h:outputLabel>
-                <h:outputLabel value = "Password">
-                    <h:inputSecret id="passField" value="#{loginRequest.password}">
-                    </h:inputSecret>
-                    <h:message for="passField"/>
-                </h:outputLabel>
-                <h:commandButton styleClass="button" value="Login" action="#{loginController.login}"/>
-                <div id="accounts">
-                    <p>You don't have an account? <a href="register.xhtml"> You can register here.</a></p>
+        <ui:composition template="/template/common/template.xhtml">
+            <ui:define name="header">
+                <!--Not used in forms-->
+            </ui:define>
+            <ui:define name="content">
+                <div id="content">
+                    <div id="banner">
+                        <img src="resources/images/logo.png" alt="logo"/>
+                    </div>
+                    <div id="form">
+                        <h:form>
+                            <h3>Please log in to access this page</h3>
+                            <h:outputLabel value = "Login">
+                                <h:inputText id="loginField" value="#{loginRequest.username}">
+                                    <f:validateRegex pattern="^[a-z]+$"/>
+                                </h:inputText>
+                                <h:message for="loginField"/>
+                            </h:outputLabel>
+                            <h:outputLabel value = "Password">
+                                <h:inputSecret id="passField" value="#{loginRequest.password}">
+                                </h:inputSecret>
+                                <h:message for="passField"/>
+                            </h:outputLabel>
+                            <h:commandButton styleClass="button" value="Login" action="#{loginController.login}"/>
+                            <div id="accounts">
+                                <p>You don't have an account? <a href="register.xhtml"> You can register here.</a></p>
+                            </div>
+                        </h:form>
+                    </div>
                 </div>
-            </h:form>
-        </div>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
