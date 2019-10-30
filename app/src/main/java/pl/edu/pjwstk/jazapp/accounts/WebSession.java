@@ -7,9 +7,7 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class WebSession implements Serializable {
-    private boolean session = false;
     private Account loggedUser;
-
     private String name = "";
 
     public String getName() {
@@ -25,5 +23,14 @@ public class WebSession implements Serializable {
     public void setLoggedUser(Account loggedUser) {
         this.loggedUser = loggedUser;
         name = loggedUser.getUsername();
+    }
+
+    public void setWrongPassword() {
+        //TODO: Wrong password message
+    }
+
+    public boolean userIsLogged() {
+        if (loggedUser != null) return true;
+        return false;
     }
 }

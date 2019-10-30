@@ -33,7 +33,7 @@ public class LoginController {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().redirect("/app");
         } else {
-            //TODO: Couldn't login error
+            session.setWrongPassword();
         }
         //profileRepository.sampleCodeWithPC();
     }

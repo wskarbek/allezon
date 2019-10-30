@@ -1,21 +1,35 @@
 package pl.edu.pjwstk.jazapp.login;
 
+import pl.edu.pjwstk.jazapp.accounts.WebSession;
+
+import javax.inject.Inject;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//@WebFilter("*")
-public class LoginFilter {
+@WebFilter("*")
+public class LoginFilter extends HttpFilter {
+
+    @Inject
+    WebSession webSession;
+
 
     //http://www.itcuties.com/j2ee/jsf-2-login-filter-example/
+    //https://stackoverflow.com/questions/44702494/servlet-filter-prevents-css-from-working
+    @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        /*if (req.getRequestURI().contains("/test")) {
-            res.sendRedirect("https://google.com");
-        } else {
+
+        boolean isCSSFile = req.getRequestURI().contains(".css");
+
+        if (webSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhmtml") || isCSSFile) {
             chain.doFilter(req, res);
-        }*/
+        } else {
+            res.sendRedirect(req.getContextPath()+"/login.xhtml");
+        }
 
     }
 }
