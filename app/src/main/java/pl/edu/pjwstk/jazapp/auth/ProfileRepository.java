@@ -1,18 +1,39 @@
 package pl.edu.pjwstk.jazapp.auth;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @ApplicationScoped
 public class ProfileRepository {
+
+    @Inject
+    private ProfileSession session;
+
     @PersistenceContext
     private EntityManager em;
-    
+
     @Transactional
+    public void registerUser(ProfileEnity pe) {
+        em.persist(pe);
+    }
+
+    @Transactional
+    public ProfileEnity getAndCheckUser(String username, String password) {
+        ProfileEnity profile = em.find(ProfileEnity.class, username);
+        if(profile != null) {
+            if(password.equals(profile.getPassword())) {
+                return profile;
+            }
+        } else {
+            System.out.println("User not found");
+            return null;
+        }
+        return null;
+    }
+    /*@Transactional
     public void sampleCodeWithPC() {
         ProfileEnity profile = new ProfileEnity("jesieniarz");
 
@@ -27,5 +48,5 @@ public class ProfileRepository {
         final String rawPassword = "xGXi7Qb5EK4";
 
         System.out.println("hashed password try 1: " + passwordEncoder.encode(rawPassword));
-    }
+    }*/
 }

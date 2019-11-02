@@ -1,6 +1,6 @@
 package pl.edu.pjwstk.jazapp.login;
 
-import pl.edu.pjwstk.jazapp.accounts.WebSession;
+import pl.edu.pjwstk.jazapp.auth.ProfileSession;
 
 import javax.inject.Inject;
 import javax.servlet.FilterChain;
@@ -15,7 +15,7 @@ import java.io.IOException;
 public class LoginFilter extends HttpFilter {
 
     @Inject
-    WebSession webSession;
+    ProfileSession profileSession;
 
 
     //http://www.itcuties.com/j2ee/jsf-2-login-filter-example/
@@ -25,7 +25,7 @@ public class LoginFilter extends HttpFilter {
 
         boolean isCSSFile = req.getRequestURI().contains(".css");
 
-        if (webSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || isCSSFile) {
+        if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || isCSSFile) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(req.getContextPath()+"/login.xhtml");

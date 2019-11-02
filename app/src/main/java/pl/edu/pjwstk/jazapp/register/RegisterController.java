@@ -1,6 +1,8 @@
 package pl.edu.pjwstk.jazapp.register;
 
 import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
+import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
+import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -15,11 +17,23 @@ public class RegisterController {
     private RegisterRequest registerRequest;
 
     @Inject
+    private ProfileRepository pr;
+
+    @Inject
     private UsersDatabase usersDatabase;
 
     public void register() throws IOException {
         System.out.println("Tried to register with" + registerRequest.toString());
-        usersDatabase.registerUser(registerRequest.toAccount());
+        //usersDatabase.registerUser(registerRequest.toAccount());
+
+        pr.registerUser(new ProfileEnity(
+                registerRequest.getUsername(),
+                registerRequest.getPassword(),
+                registerRequest.getName(),
+                registerRequest.getSurname(),
+                registerRequest.getEmail(),
+                registerRequest.getBirthday()
+        ));
 
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().redirect("login.xhtml");
