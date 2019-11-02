@@ -1,4 +1,4 @@
-version '3.7'
+version: '3.7'
 
 services:
   postgresql:
@@ -6,11 +6,11 @@ services:
     restart: unless-stopped
     ports:
       - 5432:5432
-    entrypoint:
+    environment:
       POSTGRES_DB: jazapp
       POSTGRES_USER: jazapp
       POSTGRES_PASSWORD: jazapp!98
-    volume:
+    volumes:
       - postgres-data:/var/lib/postgresql/data
 
 volumes:
