@@ -18,7 +18,7 @@
                         <h:form>
                             <h3>Please log in to access this page</h3>
                             <h:outputLabel value = "Login">
-                                <h:inputText id="loginField" value="#{loginRequest.username}">
+                                <h:inputText id="loginField" value="#{loginRequest.username}" validatorMessage="#{msg['allezon.forms.register.userNotValid']}">
                                     <f:validateRegex pattern="^[a-z]+$"/>
                                 </h:inputText>
                                 <h:message for="loginField"/>

@@ -1,8 +1,9 @@
 package pl.edu.pjwstk.jazapp.login;
 
-import pl.edu.pjwstk.jazapp.accounts.Account;
 import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
-import pl.edu.pjwstk.jazapp.accounts.WebSession;
+import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
+import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
+import pl.edu.pjwstk.jazapp.auth.ProfileSession;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -20,14 +21,14 @@ public class LoginController {
     private UsersDatabase usersDatabase;
 
     @Inject
-    private WebSession session;
+    private ProfileSession session;
 
-    //@Inject
-    //private ProfileRepository profileRepository;
+    @Inject
+    private ProfileRepository profileRepository;
 
     public void login() throws IOException {
         System.out.println("Tried to log in using " + loginRequest.toString());
-        Account acc = usersDatabase.getAndCheckUser(loginRequest.getUsername(), loginRequest.getPassword());
+        ProfileEnity acc = profileRepository.getAndCheckUser(loginRequest.getUsername(), loginRequest.getPassword());
         if(acc != null){
             session.setLoggedUser(acc);
             FacesContext context = FacesContext.getCurrentInstance();

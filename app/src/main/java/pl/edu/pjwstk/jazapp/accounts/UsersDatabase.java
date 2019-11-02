@@ -8,12 +8,6 @@ import java.util.List;
 public class UsersDatabase {
     private final List<Account> database = new ArrayList<Account>();
 
-    /*public Account getUser(String username) {
-        for (Account a : database) {
-
-        }
-    }*/
-
     public void registerUser(Account account) {
         database.add(account);
     }
