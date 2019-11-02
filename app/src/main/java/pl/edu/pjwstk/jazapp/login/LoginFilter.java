@@ -25,7 +25,7 @@ public class LoginFilter extends HttpFilter {
 
         boolean isCSSFile = req.getRequestURI().contains(".css");
 
-        if (webSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhmtml") || isCSSFile) {
+        if (webSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || isCSSFile) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(req.getContextPath()+"/login.xhtml");
