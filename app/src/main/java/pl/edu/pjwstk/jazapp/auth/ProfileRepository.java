@@ -29,29 +29,10 @@ public class ProfileRepository {
             if(BCrypt.checkpw(password, profile.getPassword())) {
                 return profile;
             }
-            /*if(password.equals(profile.getPassword())) {
-                return profile;
-            }*/
         } else {
             System.out.println("User not found");
             return null;
         }
         return null;
     }
-    /*@Transactional
-    public void sampleCodeWithPC() {
-        ProfileEnity profile = new ProfileEnity("jesieniarz");
-
-        em.persist(profile);
-
-        final ProfileEnity profileEnity = em.find(ProfileEnity.class, 7L);
-        var list = em.createQuery("from ProfileEnity where name = :name", ProfileEnity.class)
-                .setParameter("name", "jesieniarz2")
-                .getResultList();
-
-        var passwordEncoder = new BCryptPasswordEncoder();
-        final String rawPassword = "xGXi7Qb5EK4";
-
-        System.out.println("hashed password try 1: " + passwordEncoder.encode(rawPassword));
-    }*/
 }
