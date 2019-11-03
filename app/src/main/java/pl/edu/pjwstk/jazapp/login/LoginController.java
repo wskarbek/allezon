@@ -1,6 +1,5 @@
 package pl.edu.pjwstk.jazapp.login;
 
-import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
 import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
 import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
 import pl.edu.pjwstk.jazapp.auth.ProfileSession;
@@ -16,9 +15,6 @@ import java.io.IOException;
 public class LoginController {
     @Inject
     private LoginRequest loginRequest;
-
-    @Inject
-    private UsersDatabase usersDatabase;
 
     @Inject
     private ProfileSession session;

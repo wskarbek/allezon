@@ -1,6 +1,5 @@
 package pl.edu.pjwstk.jazapp.register;
 
-import pl.edu.pjwstk.jazapp.accounts.UsersDatabase;
 import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
 import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
 
@@ -18,9 +17,6 @@ public class RegisterController {
 
     @Inject
     private ProfileRepository pr;
-
-    @Inject
-    private UsersDatabase usersDatabase;
 
     public void register() throws IOException {
         System.out.println("Tried to register with" + registerRequest.toString());

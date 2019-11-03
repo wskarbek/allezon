@@ -1,7 +1,5 @@
 package pl.edu.pjwstk.jazapp.register;
 
-import pl.edu.pjwstk.jazapp.accounts.Account;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -53,17 +51,6 @@ public class RegisterRequest {
     public String getBirthday() { return birthday; }
 
     public void setBirthday(String birthday) { this.birthday = birthday; }
-
-    public Account toAccount() {
-        Account acc = new Account();
-        acc.setUsername(username);
-        acc.setPassword(password);
-        acc.setName(name);
-        acc.setSurname(surname);
-        acc.setEmail(email);
-        acc.setBirthday(birthday);
-        return acc;
-    }
 
     @Override
     public String toString() {
