@@ -24,6 +24,7 @@ public class LoginController {
 
     public void login() throws IOException {
         System.out.println("Tried to log in using " + loginRequest.toString());
+
         ProfileEnity acc = profileRepository.getAndCheckUser(loginRequest.getUsername(), loginRequest.getPassword());
         if(acc != null){
             session.setLoggedUser(acc);

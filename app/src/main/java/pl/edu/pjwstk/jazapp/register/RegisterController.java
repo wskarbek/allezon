@@ -1,5 +1,6 @@
 package pl.edu.pjwstk.jazapp.register;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
 import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
 
@@ -22,9 +23,14 @@ public class RegisterController {
         System.out.println("Tried to register with" + registerRequest.toString());
         //usersDatabase.registerUser(registerRequest.toAccount());
 
+        var passwordEncoder = new BCryptPasswordEncoder();
+        final String rawPass = registerRequest.getPassword();
+        final String hashPass = passwordEncoder.encode(rawPass);
+        System.out.println("Hashed password: " + hashPass);
+
         pr.registerUser(new ProfileEnity(
                 registerRequest.getUsername(),
-                registerRequest.getPassword(),
+                hashPass,
                 registerRequest.getName(),
                 registerRequest.getSurname(),
                 registerRequest.getEmail(),
