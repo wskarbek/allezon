@@ -23,6 +23,13 @@ public class ProfileRepository {
     }
 
     @Transactional
+    public boolean userExists(String username) {
+        ProfileEnity profile = em.find(ProfileEnity.class, username);
+        if (profile != null) return true;
+        return false;
+    }
+
+    @Transactional
     public ProfileEnity getAndCheckUser(String username, String password) {
         ProfileEnity profile = em.find(ProfileEnity.class, username);
         if(profile != null) {

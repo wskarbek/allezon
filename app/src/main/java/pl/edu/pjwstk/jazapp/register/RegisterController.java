@@ -19,25 +19,36 @@ public class RegisterController {
     @Inject
     private ProfileRepository pr;
 
+    private String registerError = "";
+
+    public String getRegisterError() {
+        return registerError;
+    }
+
     public void register() throws IOException {
         System.out.println("Tried to register with" + registerRequest.toString());
         //usersDatabase.registerUser(registerRequest.toAccount());
 
-        var passwordEncoder = new BCryptPasswordEncoder();
-        final String rawPass = registerRequest.getPassword();
-        final String hashPass = passwordEncoder.encode(rawPass);
-        System.out.println("Hashed password: " + hashPass);
+        if(!pr.userExists(registerRequest.getUsername())) {
 
-        pr.registerUser(new ProfileEnity(
-                registerRequest.getUsername(),
-                hashPass,
-                registerRequest.getName(),
-                registerRequest.getSurname(),
-                registerRequest.getEmail(),
-                registerRequest.getBirthday()
-        ));
+            var passwordEncoder = new BCryptPasswordEncoder();
+            final String rawPass = registerRequest.getPassword();
+            final String hashPass = passwordEncoder.encode(rawPass);
+            System.out.println("Hashed password: " + hashPass);
 
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().redirect("login.xhtml");
+            pr.registerUser(new ProfileEnity(
+                    registerRequest.getUsername(),
+                    hashPass,
+                    registerRequest.getName(),
+                    registerRequest.getSurname(),
+                    registerRequest.getEmail(),
+                    registerRequest.getBirthday()
+            ));
+
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().redirect("login.xhtml");
+        } else {
+            registerError = "User already exists.";
+        }
     }
 }

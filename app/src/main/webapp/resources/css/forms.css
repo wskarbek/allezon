@@ -17,6 +17,10 @@ form {
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
+#formError {
+    color: red;
+}
+
 #accounts {
     font-size: 12px;
 }

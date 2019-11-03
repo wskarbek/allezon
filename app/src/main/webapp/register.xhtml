@@ -21,6 +21,9 @@
                     <div id="form">
                         <h:form>
                             <h3>Register</h3>
+                            <div id="formError">
+                                <h:outputText value="#{registerController.registerError}"/>
+                            </div>
                             <h:outputLabel value = "Name:">
                                 <h:inputText id="nameField" requried="true" value="#{registerRequest.name}">
                                     <f:validateRegex pattern="^[a-zA-Z]+$"/>
@@ -45,14 +48,20 @@
                                 <h:inputText id="emailField" requried="true" value="#{registerRequest.email}">
                                     <!--https://www.regextester.com/97668-->
                                     <f:validateRegex pattern="^[^@]+@[^\.]+\..+$"/>
+                                    <!--<f:validateRegex pattern="^(?:[a-z0-9!#$%&amp;'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;
+                                    '*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\
+                                    x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-
+                                    9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][
+                                    0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53
+                                    -\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$"/>-->
                                 </h:inputText>
                                 <h:message for="emailField"/>
                             </h:outputLabel>
                             <!--https://www.regextester.com/96683-->
                             <!--https://stackoverflow.com/questions/8494264/how-to-add-placeholder-attribute-to-jsf-input-component-->
                             <h:outputLabel value = "Birthday:">
-                                <h:inputText a:placeholder="yyyy-mm-dd" id="birthdayField" required="true" value="#{registerRequest.birthday}">
-                                    <f:validateRegex pattern="^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$"/>
+                                <h:inputText a:placeholder="dd/mm/yyyy" id="birthdayField" required="true" value="#{registerRequest.birthday}">
+                                    <f:validateRegex pattern="^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/[12]\d{3})$"/>
                                 </h:inputText>
                             </h:outputLabel>
                             <h:outputLabel value = "Password:">
