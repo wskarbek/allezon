@@ -15,7 +15,6 @@
     </h:head>
     <h:body>
         <ui:composition template="/template/common/template.xhtml">
-
             <ui:define name="content">
                 <div id="content">
                     <div id="form">
@@ -25,48 +24,47 @@
                                 <h:outputText value="#{registerController.registerError}"/>
                             </div>
                             <h:outputLabel value = "Name:">
-                                <h:inputText id="nameField" requried="true" value="#{registerRequest.name}">
-                                    <f:validateRegex pattern="^[a-zA-Z\p{L}]+$"/>
-                                    <f:validateLength minimum="3" maximum="50"/>
+                                <h:inputText id="nameField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" validatorMessage="#{msg['allezon.forms.err.regex.name']}" value="#{registerRequest.name}">
+                                    <f:validateRegex pattern="^[a-zA-Z\p{L}]+.{2,49}$"/>
                                 </h:inputText>
-                                <h:message for="nameField"/>
                             </h:outputLabel>
+                            <h:message  for="nameField" style="color: red"/><br />
                             <h:outputLabel value = "Surname:">
-                                <h:inputText id="surnameField" requried="true" value="#{registerRequest.surname}">
-                                    <f:validateRegex pattern="^[a-zA-Z\p{L}]+$"/>
-                                    <f:validateLength minimum="3" maximum="50"/>
+                                <h:inputText id="surnameField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" validatorMessage="#{msg['allezon.forms.err.regex.surname']}" value="#{registerRequest.surname}">
+                                    <f:validateRegex pattern="^[a-zA-Z\p{L}]+.{2,49}$"/>
                                 </h:inputText>
-                                <h:message for="surnameField"/>
                             </h:outputLabel>
+                            <h:message for="surnameField" style="color: red"/><br />
                             <h:outputLabel value = "Username:">
-                                <h:inputText id="usernameField" requried="true" value="#{registerRequest.username}">
+                                <h:inputText id="usernameField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" validatorMessage="#{msg['allezon.forms.err.regex.username']}" value="#{registerRequest.username}">
                                     <f:validateRegex pattern="^[a-z0-9]+$"/>
                                 </h:inputText>
-                                <h:message for="usernameField"/>
                             </h:outputLabel>
+                            <h:message for="usernameField" style="color: red"/><br />
                             <h:outputLabel value = "Email:">
-                                <h:inputText id="emailField" requried="true" value="#{registerRequest.email}">
-                                    <!--f:validateRegex pattern="^[^@]+@[^\.]+\..+$"/-->
+                                <h:inputText id="emailField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" validatorMessage="#{msg['allezon.forms.err.regex.email']}" value="#{registerRequest.email}">
                                     <f:validateRegex pattern="(?:[a-z0-9!#$%&amp;'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|'(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])')@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"/>
                                 </h:inputText>
-                                <h:message for="emailField"/>
                             </h:outputLabel>
+                            <h:message for="emailField" style="color: red"/><br />
                             <!--https://www.regextester.com/96683-->
                             <!--https://stackoverflow.com/questions/8494264/how-to-add-placeholder-attribute-to-jsf-input-component-->
                             <h:outputLabel value = "Birthday:">
-                                <h:inputText a:placeholder="dd/mm/yyyy" id="birthdayField" required="true" value="#{registerRequest.birthday}">
+                                <h:inputText a:placeholder="dd/mm/yyyy" id="birthdayField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" validatorMessage="#{msg['allezon.forms.err.regex.birthday']}" value="#{registerRequest.birthday}">
                                     <f:validateRegex pattern="^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/[12]\d{3})$"/>
                                 </h:inputText>
                             </h:outputLabel>
+                            <h:message for="birthdayField" style="color: red"/><br />
                             <h:outputLabel value = "Password:">
-                                <h:inputSecret id="passField" requried="true" value="#{registerRequest.password}">
-                                    <f:validateRegex pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,30}$"/>
+                                <h:inputSecret id="passField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" validatorMessage="#{msg['allezon.forms.err.regex.password']}" value="#{registerRequest.password}">
+                                    <f:validateRegex pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,29}$"/>
                                 </h:inputSecret>
-                                <h:message for="passField"/>
                             </h:outputLabel>
+                            <h:message for="passField" style="color: red"/><br />
                             <h:outputLabel value = "Repeat password:">
-                                <h:inputSecret id="passCheckField" requried="true" value="#{registerRequest.passwordCheck}"/>
+                                <h:inputSecret id="passCheckField" required="true" requiredMessage="#{msg['allezon.forms.err.required']}" value="#{registerRequest.passwordCheck}"/>
                             </h:outputLabel>
+                            <h:message for="passCheckField"  style="color: red"/><br />
                             <p/>
                             <h:commandButton styleClass="button" value="Register" action="#{registerController.register}"></h:commandButton>
                             <div id="accounts">

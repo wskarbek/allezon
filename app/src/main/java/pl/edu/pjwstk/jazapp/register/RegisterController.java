@@ -28,31 +28,33 @@ public class RegisterController {
     public void register() throws IOException {
         System.out.println("Tried to register with" + registerRequest.toString());
         //usersDatabase.registerUser(registerRequest.toAccount());
-
-        if(!pr.userExists(registerRequest.getUsername())) {
-            if(registerRequest.getPassword().equals(registerRequest.getPasswordCheck())) {
-
-                var passwordEncoder = new BCryptPasswordEncoder();
-                final String rawPass = registerRequest.getPassword();
-                final String hashPass = passwordEncoder.encode(rawPass);
-                System.out.println("Hashed password: " + hashPass);
-
-                pr.registerUser(new ProfileEnity(
-                        registerRequest.getUsername(),
-                        hashPass,
-                        registerRequest.getName(),
-                        registerRequest.getSurname(),
-                        registerRequest.getEmail(),
-                        registerRequest.getBirthday()
-                ));
-
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.getExternalContext().redirect("login.xhtml");
-            } else {
-                registerError = "Passwords are not matching.";
-            }
-        } else {
+        if(pr.userExists(registerRequest.getUsername())) {
             registerError = "User already exists.";
+            return;
         }
+        if(!registerRequest.getPassword().equals(registerRequest.getPasswordCheck())) {
+            registerError = "Passwords are not matching.";
+            return;
+        }
+        /*if(pr.emailExists(registerRequest.getEmail())) {
+            registerError = "This email address belongs to another account.";
+            return;
+        }*/
+
+        var passwordEncoder = new BCryptPasswordEncoder();
+        final String rawPass = registerRequest.getPassword();
+        final String hashPass = passwordEncoder.encode(rawPass);
+        System.out.println("Hashed password: " + hashPass);
+
+        pr.registerUser(new ProfileEnity(
+                registerRequest.getUsername(),
+                hashPass,
+                registerRequest.getName(),
+                registerRequest.getSurname(),
+                registerRequest.getEmail(),
+                registerRequest.getBirthday()
+        ));
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("login.xhtml");
     }
 }

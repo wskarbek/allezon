@@ -5,7 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
 >
     <h:head>
         <title>Allezon</title>
@@ -21,9 +20,7 @@
                                 <h:outputText value="#{profileRepository.loginError}"/>
                             </div>
                             <h:outputLabel value = "Login">
-                                <h:inputText id="loginField" value="#{loginRequest.username}" validatorMessage="#{msg['allezon.forms.register.userNotValid']}">
-                                    <f:validateRegex pattern="^[a-z]+$"/>
-                                </h:inputText>
+                                <h:inputText id="loginField" value="#{loginRequest.username}" validatorMessage="#{msg['allezon.forms.register.userNotValid']}"/>
                                 <h:message for="loginField"/>
                             </h:outputLabel>
                             <h:outputLabel value = "Password">

@@ -13,6 +13,8 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class ProfileRepository {
 
+    final private String BAD_LOGIN = "Incorrect username or password";
+
     @Inject
     private ProfileSession session;
 
@@ -35,6 +37,11 @@ public class ProfileRepository {
         return false;
     }
 
+    /*@Transactional
+    public boolean emailExists(String email) {
+        ProfileEnity profile = em.find
+    }*/
+
     @Transactional
     public ProfileEnity getAndCheckUser(String username, String password) {
         ProfileEnity profile = em.find(ProfileEnity.class, username);
@@ -42,12 +49,12 @@ public class ProfileRepository {
             if(BCrypt.checkpw(password, profile.getPassword())) {
                 return profile;
             } else {
-                loginError = "Wrong password";
+                loginError = BAD_LOGIN;
+                return null;
             }
         } else {
-            loginError = "User not found";
+            loginError = BAD_LOGIN;
             return null;
         }
-        return null;
     }
 }

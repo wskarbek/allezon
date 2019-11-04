@@ -21,6 +21,10 @@ public class ProfileEnity {
     public ProfileEnity() {
     }
 
+    public ProfileEnity(String username) {
+        this.username = username;
+    }
+
     public ProfileEnity(String username, String password, String name, String surname, String email, String birthday) {
         this.username = username;
         this.password = password;
