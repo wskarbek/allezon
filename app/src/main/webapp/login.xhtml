@@ -17,6 +17,9 @@
                     <div id="form">
                         <h:form>
                             <h3>Please log in to access this page</h3>
+                            <div id="formError">
+                                <h:outputText value="#{profileRepository.loginError}"/>
+                            </div>
                             <h:outputLabel value = "Login">
                                 <h:inputText id="loginField" value="#{loginRequest.username}" validatorMessage="#{msg['allezon.forms.register.userNotValid']}">
                                     <f:validateRegex pattern="^[a-z]+$"/>

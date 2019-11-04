@@ -22,6 +22,10 @@ public class LoginController {
     @Inject
     private ProfileRepository profileRepository;
 
+    private String loginError = "";
+
+    public String getLoginError() { return loginError; }
+
     public void login() throws IOException {
         System.out.println("Tried to log in using " + loginRequest.toString());
 
@@ -30,8 +34,6 @@ public class LoginController {
             session.setLoggedUser(acc);
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().redirect("/app");
-        } else {
-            session.setWrongPassword();
         }
         //profileRepository.sampleCodeWithPC();
     }

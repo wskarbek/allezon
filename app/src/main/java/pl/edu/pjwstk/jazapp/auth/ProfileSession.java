@@ -18,11 +18,7 @@ public class ProfileSession implements Serializable {
 
     public void setLoggedUser(ProfileEnity loggedUser) {
         this.loggedUser = loggedUser;
-        name = loggedUser.getUsername();
-    }
-
-    public void setWrongPassword() {
-        //TODO: Wrong password message
+        name = loggedUser.getName() + " " + loggedUser.getSurname();
     }
 
     public boolean userIsLogged() {

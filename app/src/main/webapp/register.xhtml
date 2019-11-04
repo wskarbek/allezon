@@ -67,6 +67,7 @@
                             <h:outputLabel value = "Password:">
                                 <h:inputSecret id="passField" requried="true" value="#{registerRequest.password}">
                                     <f:validateLength minimum="5" maximum="30"/>
+                                    <!--<f:validateRegex pattern="^[1-9]$"/>-->
                                 </h:inputSecret>
                                 <h:message for="passField"/>
                             </h:outputLabel>
@@ -76,7 +77,7 @@
                                 </h:inputSecret>
                             </h:outputLabel>
                             <p/>
-                            <h:commandButton styleClass="button" value="Register" action="#{registerController.register}"></h:commandButton>
+                            <h:commandButton styleClass="button" value="Register" action="#{registerController.register}"/>
                             <div id="accounts">
                                 <p>You already have an account?<a href="login.xhtml"> You can login here.</a></p>
                             </div>

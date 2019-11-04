@@ -4,10 +4,12 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+@Named
 @ApplicationScoped
 public class ProfileRepository {
 
@@ -16,6 +18,10 @@ public class ProfileRepository {
 
     @PersistenceContext
     private EntityManager em;
+
+    private String loginError;
+
+    public String getLoginError() { return loginError; }
 
     @Transactional
     public void registerUser(ProfileEnity pe) {
@@ -35,9 +41,11 @@ public class ProfileRepository {
         if(profile != null) {
             if(BCrypt.checkpw(password, profile.getPassword())) {
                 return profile;
+            } else {
+                loginError = "Wrong password";
             }
         } else {
-            System.out.println("User not found");
+            loginError = "User not found";
             return null;
         }
         return null;
