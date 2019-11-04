@@ -26,14 +26,14 @@
                             </div>
                             <h:outputLabel value = "Name:">
                                 <h:inputText id="nameField" requried="true" value="#{registerRequest.name}">
-                                    <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                    <f:validateRegex pattern="^[a-zA-Z\p{L}]+$"/>
                                     <f:validateLength minimum="3" maximum="50"/>
                                 </h:inputText>
                                 <h:message for="nameField"/>
                             </h:outputLabel>
                             <h:outputLabel value = "Surname:">
                                 <h:inputText id="surnameField" requried="true" value="#{registerRequest.surname}">
-                                    <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                    <f:validateRegex pattern="^[a-zA-Z\p{L}]+$"/>
                                     <f:validateLength minimum="3" maximum="50"/>
                                 </h:inputText>
                                 <h:message for="surnameField"/>
@@ -65,13 +65,13 @@
                                 </h:inputText>
                             </h:outputLabel>
                             <h:outputLabel value = "Password:">
-                                <h:inputSecret id="passField" requried="true" value="#{registerRequest.password}" match="passCheckField">
+                                <h:inputSecret id="passField" requried="true" value="#{registerRequest.password}">
                                     <f:validateLength minimum="5" maximum="30"/>
                                 </h:inputSecret>
                                 <h:message for="passField"/>
                             </h:outputLabel>
                             <h:outputLabel value = "Repeat password:">
-                                <h:inputSecret id="passCheckField" requried="true" value="#{registerRequest.password}">
+                                <h:inputSecret id="passCheckField" requried="true" value="#{registerRequest.passwordCheck}">
                                     <f:validateLength minimum="5" maximum="30"/>
                                 </h:inputSecret>
                             </h:outputLabel>

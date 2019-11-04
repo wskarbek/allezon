@@ -30,23 +30,27 @@ public class RegisterController {
         //usersDatabase.registerUser(registerRequest.toAccount());
 
         if(!pr.userExists(registerRequest.getUsername())) {
+            if(registerRequest.getPassword().equals(registerRequest.getPasswordCheck())) {
 
-            var passwordEncoder = new BCryptPasswordEncoder();
-            final String rawPass = registerRequest.getPassword();
-            final String hashPass = passwordEncoder.encode(rawPass);
-            System.out.println("Hashed password: " + hashPass);
+                var passwordEncoder = new BCryptPasswordEncoder();
+                final String rawPass = registerRequest.getPassword();
+                final String hashPass = passwordEncoder.encode(rawPass);
+                System.out.println("Hashed password: " + hashPass);
 
-            pr.registerUser(new ProfileEnity(
-                    registerRequest.getUsername(),
-                    hashPass,
-                    registerRequest.getName(),
-                    registerRequest.getSurname(),
-                    registerRequest.getEmail(),
-                    registerRequest.getBirthday()
-            ));
+                pr.registerUser(new ProfileEnity(
+                        registerRequest.getUsername(),
+                        hashPass,
+                        registerRequest.getName(),
+                        registerRequest.getSurname(),
+                        registerRequest.getEmail(),
+                        registerRequest.getBirthday()
+                ));
 
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.getExternalContext().redirect("login.xhtml");
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.getExternalContext().redirect("login.xhtml");
+            } else {
+                registerError = "Passwords are not matching.";
+            }
         } else {
             registerError = "User already exists.";
         }

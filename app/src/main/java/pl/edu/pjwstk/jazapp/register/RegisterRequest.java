@@ -6,7 +6,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class RegisterRequest {
-    private String username, password, name, surname, email, birthday;
+    private String username, password, passwordCheck, name, surname, email, birthday;
 
     public String getUsername() {
         return username;
@@ -52,11 +52,16 @@ public class RegisterRequest {
 
     public void setBirthday(String birthday) { this.birthday = birthday; }
 
+    public String getPasswordCheck() { return passwordCheck; }
+
+    public void setPasswordCheck(String passwordCheck) { this.passwordCheck = passwordCheck; }
+
     @Override
     public String toString() {
         return "RegisterRequest{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", passwordCheck='" +passwordCheck + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthday='" + birthday + '\'' +
