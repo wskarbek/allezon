@@ -22,6 +22,16 @@ public class BranchRepository {
     @Transactional
     public void addBranch(Branch branch) { em.persist(branch); }
 
+    @Transactional
+    public Branch getBranch(String branchName) {
+        return em.createQuery("from Branch where name = :branchName", Branch.class).setParameter("branchName", branchName).getSingleResult();
+    }
+
+    @Transactional
+    public List<Branch> getBranches() {
+        return em.createQuery("from Branch order by name", Branch.class).getResultList();
+    }
+
     /*@Transactional
     public boolean branchExist(String name) {
         //Branch branch = em.find(Branch.class, name);

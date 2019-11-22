@@ -12,14 +12,20 @@ public class Auction {
     @Id
     private Integer id;
 
-    @Column(name = "owner")
     @ManyToOne
+    @JoinColumn(name = "owner")
     private ProfileEnity owner;
 
-    @Column(name = "category")
     @ManyToOne
+    @JoinColumn(name = "category")
     private Category category;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "price")
     private float price;
+
+    @Column(name = "description")
     private String description;
 }

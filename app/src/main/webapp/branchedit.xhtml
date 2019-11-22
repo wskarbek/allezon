@@ -3,7 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
     <h:head>
         <title>Add/Edit branches</title>
@@ -20,7 +21,7 @@
                             </div>
                             <h:outputLabel value="Name">
                                 <h:inputText id="nameFieldBranch" value="#{branchRequest.name}"/>
-                                <h:message for="nameField"/>
+                                <h:message for="nameFieldBranch"/>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Add" action="#{branchController.add}"/>
                         </h:form>
@@ -36,8 +37,11 @@
                                 <h:message for="nameFieldCategory"/>
                             </h:outputLabel>
                             <h:outputLabel value="Branch">
-                                <h:inputText id="branchFieldCategory" value="#{categoryRequest.branchName}"/>
-                                <h:message for="branchFieldCategory"/>
+                                <h:selectOneMenu value="#{categoryRequest.branchName}">
+                                    <c:forEach items="#{branchRepository.branches}" var="branch" varStatus="metadata">
+                                        <f:selectItem itemValue="#{branch.name}"/>
+                                    </c:forEach>
+                                </h:selectOneMenu>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Add" action="#{categoryController.add}"/>
                         </h:form>

@@ -7,18 +7,22 @@
 }
 
 form {
-    margin: auto;
+    margin-top: 4px;
     padding: 0px;
     width: 300px;
     color: #121843;
     background-color: lightsteelblue;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 8px;
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
 #formError {
     color: red;
+}
+
+#formMessage {
+    color: greenyellow;
 }
 
 #accounts {
@@ -30,12 +34,12 @@ a:link{
     text-decoration: none;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], select{
     width: 94%;
     height: 32px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -43,11 +47,12 @@ input[type=text], input[type=password] {
 https://www.w3schools.com/howto/howto_css_animate_buttons.asp*/
 .button{
     background-color: #7489a3;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     color: #121843;
     text-align: center;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .button:hover {
@@ -55,5 +60,5 @@ https://www.w3schools.com/howto/howto_css_animate_buttons.asp*/
 }
 
 .button:active {
-    background-color: #414d64;
+    background-color: #5d6d85;
 }
