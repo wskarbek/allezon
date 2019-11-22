@@ -1,8 +1,15 @@
 databaseChangeLog:
   - changeSet:
       id: 20191021_init
-      author: Paweł Janowiak
+      author: Wojciech Skarbek
       sqlFile:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20191021_init.sql
+  - changeSet:
+      id: 20191113_init
+      author: Wojciech Skarbek
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191113_init.sql

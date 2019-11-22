@@ -24,8 +24,7 @@
                                 <h:message for="loginField"/>
                             </h:outputLabel>
                             <h:outputLabel value = "Password">
-                                <h:inputSecret id="passField" value="#{loginRequest.password}">
-                                </h:inputSecret>
+                                <h:inputSecret id="passField" value="#{loginRequest.password}"/>
                                 <h:message for="passField"/>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Login" action="#{loginController.login}"/>

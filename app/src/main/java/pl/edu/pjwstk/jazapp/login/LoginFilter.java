@@ -26,7 +26,7 @@ public class LoginFilter extends HttpFilter {
         boolean isCSSFile = req.getRequestURI().contains(".css");
         boolean isImageFile = req.getRequestURI().contains(".png");
 
-        if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || isCSSFile || isImageFile) {
+        if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("branchedit.xhtml")|| isCSSFile || isImageFile) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(req.getContextPath()+"/login.xhtml");
