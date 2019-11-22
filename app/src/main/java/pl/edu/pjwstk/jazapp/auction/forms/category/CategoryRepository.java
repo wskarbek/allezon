@@ -19,7 +19,7 @@ public class CategoryRepository {
 
     @Transactional
     public boolean categoryExist(String name) {
-        Category category = em.find(Category.class, name);
+        var category = em.createQuery("from Category where name = :categoryName", Category.class).setParameter("categoryName", name);
         return category != null;
     }
 

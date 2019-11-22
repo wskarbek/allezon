@@ -16,13 +16,23 @@ public class BranchController {
     private BranchRepository br;
 
     private String error = "";
+    private String success = "";
 
     public void add() {
         System.out.println("Tried to add " + branchRequest.toString() );
-        /*if(br.branchExist(branchRequest.getName())) {
+        if(br.branchExist(branchRequest.getName())) {
             error = "Branch already exists.";
             return;
-        }*/
+        }
         br.addBranch(new Branch(branchRequest.getName()));
+        success = "Branch " + branchRequest.getName() + " added.";
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public String getSuccess() {
+        return success;
     }
 }

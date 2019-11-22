@@ -24,10 +24,19 @@ public class CategoryController {
 
     public void add() {
         System.out.println("Tried to add " + categoryRequest.toString() );
-        /*if(cr.categoryExist(categoryRequest.getName())) {
+        if(cr.categoryExist(categoryRequest.getName())) {
             error = "Category already exists.";
             return;
-        }*/
+        }
         cr.addCategory(new Category(categoryRequest.getName(), br.getBranch(categoryRequest.getBranchName())));
+        success = "Category " + categoryRequest.getName() + " - " + categoryRequest.getBranchName() + " added.";
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public String getSuccess() {
+        return success;
     }
 }

@@ -32,11 +32,10 @@ public class BranchRepository {
         return em.createQuery("from Branch order by name", Branch.class).getResultList();
     }
 
-    /*@Transactional
+    @Transactional
     public boolean branchExist(String name) {
-        //Branch branch = em.find(Branch.class, name);
-        Branch branch = em.createQuery(from ")
-        return branch != null;
-    }*/
+        var branch = em.createQuery("from Branch where name = :branchName", Branch.class).setParameter("branchName", name);
+        return branch == null;
+    }
 
 }

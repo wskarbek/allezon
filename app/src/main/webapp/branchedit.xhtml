@@ -17,7 +17,10 @@
                         <h:form>
                             <h3>Add / edit branches</h3>
                             <div id="formErrorBranch">
-                                <h:outputText value=""/>
+                                <h:outputText value="#{branchController.error}"/>
+                            </div>
+                            <div id="formSuccessBranch">
+                                <h:outputText value="#{branchController.success}"/>
                             </div>
                             <h:outputLabel value="Name">
                                 <h:inputText id="nameFieldBranch" value="#{branchRequest.name}"/>
@@ -30,7 +33,10 @@
                         <h:form>
                             <h3>Add / edit categories</h3>
                             <div id="formErrorCategory">
-                                <h:outputText value=""/>
+                                <h:outputText value="#{categoryController.error}"/>
+                            </div>
+                            <div id="formSuccessCategory">
+                                <h:outputText value="#{categoryController.success}"/>
                             </div>
                             <h:outputLabel value="Name">
                                 <h:inputText id="nameFieldCategory" value="#{categoryRequest.name}"/>

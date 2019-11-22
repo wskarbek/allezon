@@ -7,7 +7,7 @@
 }
 
 form {
-    margin-top: 4px;
+    margin: 8px auto auto;
     padding: 0px;
     width: 300px;
     color: #121843;
@@ -17,12 +17,12 @@ form {
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
-#formError {
+#formError, #formErrorCategory, #formErrorBranch {
     color: red;
 }
 
-#formMessage {
-    color: greenyellow;
+#formSuccessBranch, #formSuccessCategory {
+    color: #6dd900;
 }
 
 #accounts {
@@ -52,7 +52,7 @@ https://www.w3schools.com/howto/howto_css_animate_buttons.asp*/
     color: #121843;
     text-align: center;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .button:hover {
