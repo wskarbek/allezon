@@ -14,6 +14,9 @@ public class CategoryController {
     private CategoryRequest categoryRequest;
 
     @Inject
+    private CategoryRequestEdit categoryRequestEdit;
+
+    @Inject
     private CategoryRepository cr;
 
     @Inject
@@ -21,6 +24,8 @@ public class CategoryController {
 
     private String error = "";
     private String success = "";
+    private String errorEdit = "";
+    private String successEdit = "";
 
     public void add() {
         System.out.println("Tried to add " + categoryRequest.toString() );
@@ -32,11 +37,28 @@ public class CategoryController {
         success = "Category " + categoryRequest.getName() + " - " + categoryRequest.getBranchName() + " added.";
     }
 
+    public void update() {
+        System.out.println("Tried to update to " + categoryRequestEdit.toString());
+        Category category = cr.getCategory(categoryRequestEdit.getCategoryName());
+        if(!categoryRequestEdit.getName().equals("")) category.setName(categoryRequestEdit.getName());
+        category.setBranch(br.getBranch(categoryRequestEdit.getBranchName()));
+        cr.updateCategory(category);
+        successEdit = "Category updated";
+    }
+
     public String getError() {
         return error;
     }
 
     public String getSuccess() {
         return success;
+    }
+
+    public String getErrorEdit() {
+        return errorEdit;
+    }
+
+    public String getSuccessEdit() {
+        return successEdit;
     }
 }

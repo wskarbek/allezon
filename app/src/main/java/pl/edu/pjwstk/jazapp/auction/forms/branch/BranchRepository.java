@@ -23,6 +23,11 @@ public class BranchRepository {
     public void addBranch(Branch branch) { em.persist(branch); }
 
     @Transactional
+    public void updateBranch(Branch branch) {
+        em.merge(branch);
+    }
+
+    @Transactional
     public Branch getBranch(String branchName) {
         return em.createQuery("from Branch where name = :branchName", Branch.class).setParameter("branchName", branchName).getSingleResult();
     }

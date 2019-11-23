@@ -26,6 +26,7 @@ public class LoginFilter extends HttpFilter {
         boolean isCSSFile = req.getRequestURI().contains(".css");
         boolean isImageFile = req.getRequestURI().contains(".png");
 
+        //TODO: access to branchedit.xhtml admin / moderator only
         if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("branchedit.xhtml")|| isCSSFile || isImageFile) {
             chain.doFilter(req, res);
         } else {

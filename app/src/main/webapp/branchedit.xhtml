@@ -13,9 +13,9 @@
         <ui:composition template="/template/common/template.xhtml">
             <ui:define name="content">
                 <div id="content">
-                    <div id="branchForm">
-                        <h:form>
-                            <h3>Add / edit branches</h3>
+                    <div id="branchEdit">
+                        <h:form id="formBranchAdd">
+                            <h3>Add branches</h3>
                             <div id="formErrorBranch">
                                 <h:outputText value="#{branchController.error}"/>
                             </div>
@@ -28,10 +28,31 @@
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Add" action="#{branchController.add}"/>
                         </h:form>
+                        <h:form id="formBranchEdit">
+                            <h3>Edit branches</h3>
+                            <div id="formErrorBranchEdit">
+                                <h:outputText value="#{branchController.errorEdit}"/>
+                            </div>
+                            <div id="formSuccessBranchEdit">
+                                <h:outputText value="#{branchController.successEdit}"/>
+                            </div>
+                            <h:outputLabel value="Branch">
+                                <h:selectOneMenu value="#{branchRequestEdit.branchName}">
+                                    <c:forEach items="#{branchRepository.branches}" var="branch" varStatus="metadata">
+                                        <f:selectItem itemValue="#{branch.name}"/>
+                                    </c:forEach>
+                                </h:selectOneMenu>
+                            </h:outputLabel>
+                            <h:outputLabel value="New Name">
+                                <h:inputText id="nameFieldBranchEdit" value="#{branchRequestEdit.name}"/>
+                                <h:message for="nameFieldBranch"/>
+                            </h:outputLabel>
+                            <h:commandButton styleClass="button" value="Add" action="#{branchController.update}"/>
+                        </h:form>
                     </div>
-                    <div id="categoryForm">
-                        <h:form>
-                            <h3>Add / edit categories</h3>
+                    <div id="categoryEdit">
+                        <h:form id="formCategoryAdd">
+                            <h3>Add categories</h3>
                             <div id="formErrorCategory">
                                 <h:outputText value="#{categoryController.error}"/>
                             </div>
@@ -50,6 +71,34 @@
                                 </h:selectOneMenu>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Add" action="#{categoryController.add}"/>
+                        </h:form>
+                        <h:form id="formCategoryEdit">
+                            <h3>Edit categories</h3>
+                            <div id="formErrorCategoryEdit">
+                                <h:outputText value="#{categoryController.errorEdit}"/>
+                            </div>
+                            <div id="formSuccessCategoryEdit">
+                                <h:outputText value="#{categoryController.successEdit}"/>
+                            </div>
+                            <h:outputLabel value="Category">
+                                <h:selectOneMenu value="#{categoryRequestEdit.categoryName}">
+                                    <c:forEach items="#{categoryRepository.categories}" var="category" varStatus="metadata">
+                                        <f:selectItem itemValue="#{category.name}"/>
+                                    </c:forEach>
+                                </h:selectOneMenu>
+                            </h:outputLabel>
+                            <h:outputLabel value="New Name">
+                                <h:inputText id="nameFieldCategoryEdit" value="#{categoryRequestEdit.name}"/>
+                                <h:message for="nameFieldCategoryEdit"/>
+                            </h:outputLabel>
+                            <h:outputLabel value="New Branch">
+                                <h:selectOneMenu value="#{categoryRequestEdit.branchName}">
+                                    <c:forEach items="#{branchRepository.branches}" var="branch" varStatus="metadata">
+                                        <f:selectItem itemValue="#{branch.name}"/>
+                                    </c:forEach>
+                                </h:selectOneMenu>
+                            </h:outputLabel>
+                            <h:commandButton styleClass="button" value="Add" action="#{categoryController.update}"/>
                         </h:form>
                     </div>
                 </div>

@@ -6,9 +6,15 @@
     text-align: center;
 }
 
+#branchEdit, #categoryEdit {
+    width: 100%;
+    float: left;
+}
+
+
 form {
     margin: 8px auto auto;
-    padding: 0px;
+    padding: 0;
     width: 300px;
     color: #121843;
     background-color: lightsteelblue;
@@ -17,12 +23,16 @@ form {
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
+#formBranchAdd, #formCategoryAdd, #formBranchEdit, #formCategoryEdit {
+    display: inline-block;
+}
+
 #formError, #formErrorCategory, #formErrorBranch {
     color: red;
 }
 
-#formSuccessBranch, #formSuccessCategory {
-    color: #6dd900;
+#formSuccessBranch, #formSuccessCategory, #formSuccessBranchEdit, #formSuccessCategoryEdit {
+    color: #2b4b05;
 }
 
 #accounts {

@@ -17,6 +17,7 @@ body {
     height: 5%;
     color: darkslategrey;
     font-size: 8px;
+    float: bottom;
 }
 
 #messages td { white-space: pre; }

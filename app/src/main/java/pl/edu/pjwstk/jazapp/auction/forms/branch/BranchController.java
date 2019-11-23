@@ -13,10 +13,15 @@ public class BranchController {
     private BranchRequest branchRequest;
 
     @Inject
+    private BranchRequestEdit branchRequestEdit;
+
+    @Inject
     private BranchRepository br;
 
     private String error = "";
     private String success = "";
+    private String errorEdit = "";
+    private String successEdit = "";
 
     public void add() {
         System.out.println("Tried to add " + branchRequest.toString() );
@@ -28,6 +33,14 @@ public class BranchController {
         success = "Branch " + branchRequest.getName() + " added.";
     }
 
+    public void update() {
+        System.out.println("Tried to update to " + branchRequestEdit.toString());
+        Branch branch = br.getBranch(branchRequestEdit.getBranchName());
+        branch.setName(branchRequestEdit.getName());
+        br.updateBranch(branch);
+        successEdit = "Branch updated.";
+    }
+
     public String getError() {
         return error;
     }
@@ -35,4 +48,8 @@ public class BranchController {
     public String getSuccess() {
         return success;
     }
+
+    public String getErrorEdit() { return errorEdit; }
+
+    public String getSuccessEdit() { return successEdit; }
 }
