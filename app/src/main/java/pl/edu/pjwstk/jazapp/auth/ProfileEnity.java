@@ -16,7 +16,7 @@ public class ProfileEnity {
     private String username;
 
     private String password, name, surname, email, birthday;
-
+    private boolean admin;
 
     public ProfileEnity() {
     }
@@ -25,13 +25,14 @@ public class ProfileEnity {
         this.username = username;
     }
 
-    public ProfileEnity(String username, String password, String name, String surname, String email, String birthday) {
+    public ProfileEnity(String username, String password, String name, String surname, String email, String birthday, boolean admin) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.birthday = birthday;
+        this.admin = admin;
     }
 
     public String getUsername() {
@@ -57,4 +58,6 @@ public class ProfileEnity {
     public String getBirthday() {
         return birthday;
     }
+
+    public boolean getAdmin() { return admin; }
 }

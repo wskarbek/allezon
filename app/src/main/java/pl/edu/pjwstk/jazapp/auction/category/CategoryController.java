@@ -1,7 +1,7 @@
-package pl.edu.pjwstk.jazapp.auction.forms.category;
+package pl.edu.pjwstk.jazapp.auction.category;
 
 import pl.edu.pjwstk.jazapp.auction.Category;
-import pl.edu.pjwstk.jazapp.auction.forms.branch.BranchRepository;
+import pl.edu.pjwstk.jazapp.auction.branch.BranchRepository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -40,8 +40,8 @@ public class CategoryController {
     public void update() {
         System.out.println("Tried to update to " + categoryRequestEdit.toString());
         Category category = cr.getCategory(categoryRequestEdit.getCategoryName());
-        if(!categoryRequestEdit.getName().equals("")) category.setName(categoryRequestEdit.getName());
-        category.setBranch(br.getBranch(categoryRequestEdit.getBranchName()));
+        if(!categoryRequestEdit.getNewName().equals("")) category.setName(categoryRequestEdit.getNewName());
+        category.setBranch(br.getBranch(categoryRequestEdit.getNewBranchName()));
         cr.updateCategory(category);
         successEdit = "Category updated";
     }

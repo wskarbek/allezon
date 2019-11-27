@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auction.forms.branch;
+package pl.edu.pjwstk.jazapp.auction.branch;
 
 import pl.edu.pjwstk.jazapp.auction.Branch;
 
@@ -36,7 +36,7 @@ public class BranchController {
     public void update() {
         System.out.println("Tried to update to " + branchRequestEdit.toString());
         Branch branch = br.getBranch(branchRequestEdit.getBranchName());
-        branch.setName(branchRequestEdit.getName());
+        branch.setName(branchRequestEdit.getNewName());
         br.updateBranch(branch);
         successEdit = "Branch updated.";
     }
@@ -48,8 +48,6 @@ public class BranchController {
     public String getSuccess() {
         return success;
     }
-
-    public String getErrorEdit() { return errorEdit; }
 
     public String getSuccessEdit() { return successEdit; }
 }

@@ -3,6 +3,8 @@ package pl.edu.pjwstk.jazapp.auction;
 import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="auction")
@@ -28,4 +30,19 @@ public class Auction {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany
+    private List<Photos> photosList = new ArrayList<>();
+
+    @OneToMany
+    private List<AuctionParameter> auctionParameterList = new ArrayList<>();
+
+    public Auction(String name, ProfileEnity owner, Category category, float price, String description) {
+        this.name = name;
+        this.owner = owner;
+        this.category = category;
+        this.price = price;
+        this.description = description;
+    }
+    public Auction() {}
 }

@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auction.forms.category;
+package pl.edu.pjwstk.jazapp.auction.category;
 
 import pl.edu.pjwstk.jazapp.auction.Category;
 
@@ -34,7 +34,7 @@ public class CategoryRepository {
     @Transactional
     public boolean categoryExist(String name) {
         var category = em.createQuery("from Category where name = :categoryName", Category.class).setParameter("categoryName", name);
-        return category != null;
+        return category == null;
     }
 
 }

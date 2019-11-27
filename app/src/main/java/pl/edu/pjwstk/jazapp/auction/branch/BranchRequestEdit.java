@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auction.forms.branch;
+package pl.edu.pjwstk.jazapp.auction.branch;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -6,12 +6,12 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class BranchRequestEdit {
-    private String name;
+    private String newName;
     private String branchName;
 
-    public String getName() { return name; }
+    public String getNewName() { return newName; }
 
-    public void setName(String name) { this.name = name; }
+    public void setNewName(String name) { this.newName = name; }
 
     public String getBranchName() {
         return branchName;
@@ -24,7 +24,7 @@ public class BranchRequestEdit {
     @Override
     public String toString() {
         return "Branch{" +
-                "name='" + name + '\''+
+                "name='" + newName + '\''+
                 '}';
     }
 }

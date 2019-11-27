@@ -6,12 +6,6 @@
     text-align: center;
 }
 
-#branchEdit, #categoryEdit {
-    width: 100%;
-    float: left;
-}
-
-
 form {
     margin: 8px auto auto;
     padding: 0;
@@ -23,15 +17,20 @@ form {
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
-#formBranchAdd, #formCategoryAdd, #formBranchEdit, #formCategoryEdit {
+#branch, #category {
+    width: 100%;
+    float: left;
+}
+
+#branchFormAdd, #branchFormEdit, #categoryFormAdd, #categoryFormEdit {
     display: inline-block;
 }
 
-#formError, #formErrorCategory, #formErrorBranch {
+#formError, #categoryFormAddError, #branchFormAddError {
     color: red;
 }
 
-#formSuccessBranch, #formSuccessCategory, #formSuccessBranchEdit, #formSuccessCategoryEdit {
+#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess {
     color: #2b4b05;
 }
 

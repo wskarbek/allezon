@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.register;
+package pl.edu.pjwstk.jazapp.auth.register;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
@@ -52,7 +52,8 @@ public class RegisterController {
                 registerRequest.getName(),
                 registerRequest.getSurname(),
                 registerRequest.getEmail(),
-                registerRequest.getBirthday()
+                registerRequest.getBirthday(),
+                false
         ));
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().redirect("login.xhtml");

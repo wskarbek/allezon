@@ -1,14 +1,14 @@
-package pl.edu.pjwstk.jazapp.auction.forms.category;
+package pl.edu.pjwstk.jazapp.auction.category;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class CategoryRequestEdit {
+public class CategoryRequest {
     private String name;
     private String branchName;
-    private String categoryName;
+    private String branch;
 
     public String getName() { return name; }
 
@@ -18,15 +18,11 @@ public class CategoryRequestEdit {
 
     public void setBranchName(String branch) { this.branchName = branch; }
 
-    public String getCategoryName() { return categoryName; }
-
-    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
-
     @Override
     public String toString() {
         return "Category{" +
                 "name='" + name + "\n'" +
-                "branch='" + branchName + "\n'" +
+                "branch'" + branchName + "\n'" +
                  '}';
     }
 }

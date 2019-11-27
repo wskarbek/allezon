@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auction.forms.branch;
+package pl.edu.pjwstk.jazapp.auction.branch;
 
 import pl.edu.pjwstk.jazapp.auction.Branch;
 

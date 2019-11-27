@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.login;
+package pl.edu.pjwstk.jazapp.auth.login;
 
 import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
 import pl.edu.pjwstk.jazapp.auth.ProfileRepository;

@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auction.forms.branch;
+package pl.edu.pjwstk.jazapp.auction.branch;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

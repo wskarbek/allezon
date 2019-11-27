@@ -25,4 +25,8 @@ public class ProfileSession implements Serializable {
         if (loggedUser != null) return true;
         return false;
     }
+
+    public ProfileEnity getCurrentUser() {
+        return loggedUser;
+    }
 }
