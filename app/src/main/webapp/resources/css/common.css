@@ -1,28 +1,21 @@
-body {
-    background-color: azure;
-    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+#banner {
     margin: 0;
-}
-
-#header {
+    text-align: left;
     width: 100%;
-    height: 15%;
+    color: #121843;
+    background-color: lightsteelblue;
+    border: 1px solid black;
+    height: 45px;
 }
 
-#content {
-    width: 100%;
-    height: 80%;
+img{
+    height: 40px;
 }
 
-#footer {
-    width: 100%;
-    height: 5%;
-    color: darkslategrey;
-    font-size: 8px;
-    float: bottom;
+#buttons {
+    text-align: right;
+    margin-top: -35px;
 }
-
-#messages td { white-space: pre; }
 
 /*https://stackoverflow.com/questions/3313383/jsf-commandbutton-styling
 https://www.w3schools.com/howto/howto_css_animate_buttons.asp*/

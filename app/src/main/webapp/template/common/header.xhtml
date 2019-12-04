@@ -4,6 +4,12 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
 >
     <div id="banner">
-        <h:graphicImage value="resources/images/logo.png" alt="logo"/>
+        <div id="logo">
+            <h:graphicImage value="resources/images/logo.png" alt="logo"/>
+        </div>
+        <div id="buttons">
+            <button class="button" onclick="window.location.href = 'auctionedit.xhtml'">Add auction</button>
+            <button class="button">Log out</button>
+        </div>
     </div>
 </ui:composition>
