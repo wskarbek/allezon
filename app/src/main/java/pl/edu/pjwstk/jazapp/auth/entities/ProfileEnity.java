@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auth;
+package pl.edu.pjwstk.jazapp.auth.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

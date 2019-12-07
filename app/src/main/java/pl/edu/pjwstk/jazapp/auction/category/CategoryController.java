@@ -1,6 +1,6 @@
 package pl.edu.pjwstk.jazapp.auction.category;
 
-import pl.edu.pjwstk.jazapp.auction.Category;
+import pl.edu.pjwstk.jazapp.auction.entities.Category;
 import pl.edu.pjwstk.jazapp.auction.branch.BranchRepository;
 
 import javax.enterprise.context.RequestScoped;
@@ -33,7 +33,7 @@ public class CategoryController {
             error = "Category already exists.";
             return;
         }
-        cr.addCategory(new Category(categoryRequest.getName(), br.getBranch(categoryRequest.getBranchName())));
+        cr.addCategory(new Category(categoryRequest.getName(), cr.getBranch(categoryRequest.getBranchName())));
         success = "Category " + categoryRequest.getName() + " - " + categoryRequest.getBranchName() + " added.";
     }
 
@@ -41,7 +41,7 @@ public class CategoryController {
         System.out.println("Tried to update to " + categoryRequestEdit.toString());
         Category category = cr.getCategory(categoryRequestEdit.getCategoryName());
         if(!categoryRequestEdit.getNewName().equals("")) category.setName(categoryRequestEdit.getNewName());
-        category.setBranch(br.getBranch(categoryRequestEdit.getNewBranchName()));
+        category.setBranch(cr.getBranch(categoryRequestEdit.getNewBranchName()));
         cr.updateCategory(category);
         successEdit = "Category updated";
     }

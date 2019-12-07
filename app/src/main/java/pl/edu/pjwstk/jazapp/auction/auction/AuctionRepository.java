@@ -1,6 +1,6 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
-import pl.edu.pjwstk.jazapp.auction.Auction;
+import pl.edu.pjwstk.jazapp.auction.entities.Auction;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;

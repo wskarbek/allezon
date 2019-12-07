@@ -1,6 +1,6 @@
 package pl.edu.pjwstk.jazapp.auction.branch;
 
-import pl.edu.pjwstk.jazapp.auction.Branch;
+import pl.edu.pjwstk.jazapp.auction.entities.Branch;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

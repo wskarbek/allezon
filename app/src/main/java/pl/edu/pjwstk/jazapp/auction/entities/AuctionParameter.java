@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp.auction;
+package pl.edu.pjwstk.jazapp.auction.entities;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;

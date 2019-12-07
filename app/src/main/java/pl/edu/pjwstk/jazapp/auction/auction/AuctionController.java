@@ -1,11 +1,11 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
-import pl.edu.pjwstk.jazapp.auction.Auction;
-import pl.edu.pjwstk.jazapp.auction.Category;
+import pl.edu.pjwstk.jazapp.auction.entities.Auction;
+import pl.edu.pjwstk.jazapp.auction.entities.Category;
 import pl.edu.pjwstk.jazapp.auction.category.CategoryRepository;
-import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
-import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
-import pl.edu.pjwstk.jazapp.auth.ProfileSession;
+import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
+import pl.edu.pjwstk.jazapp.auth.login.LoginProfileRepository;
+import pl.edu.pjwstk.jazapp.auth.login.LoginSession;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,13 +21,13 @@ public class AuctionController {
     private AuctionRepository auctionRepository;
 
     @Inject
-    private ProfileRepository profileRepository;
+    private LoginProfileRepository profileRepository;
 
     @Inject
     private CategoryRepository categoryRepository;
 
     @Inject
-    private ProfileSession profileSession;
+    private LoginSession profileSession;
 
     private String error = "";
     private String success = "";

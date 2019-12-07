@@ -1,8 +1,8 @@
 package pl.edu.pjwstk.jazapp.auth.register;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
-import pl.edu.pjwstk.jazapp.auth.ProfileRepository;
+import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
+import pl.edu.pjwstk.jazapp.auth.login.LoginProfileRepository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -17,7 +17,7 @@ public class RegisterController {
     private RegisterRequest registerRequest;
 
     @Inject
-    private ProfileRepository pr;
+    private RegisterProfileRepository pr;
 
     private String registerError = "";
 

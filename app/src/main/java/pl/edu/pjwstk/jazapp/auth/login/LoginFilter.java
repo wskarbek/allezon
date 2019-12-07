@@ -1,7 +1,5 @@
 package pl.edu.pjwstk.jazapp.auth.login;
 
-import pl.edu.pjwstk.jazapp.auth.ProfileSession;
-
 import javax.inject.Inject;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -15,8 +13,7 @@ import java.io.IOException;
 public class LoginFilter extends HttpFilter {
 
     @Inject
-    ProfileSession profileSession;
-
+    LoginSession profileSession;
 
     //http://www.itcuties.com/j2ee/jsf-2-login-filter-example/
     //https://stackoverflow.com/questions/44702494/servlet-filter-prevents-css-from-working
@@ -26,12 +23,21 @@ public class LoginFilter extends HttpFilter {
         boolean isCSSFile = req.getRequestURI().contains(".css");
         boolean isImageFile = req.getRequestURI().contains(".png");
 
-        //TODO: access to branchedit.xhtml admin / moderator only
+        if (req.getRequestURI().contains("auc"))
         if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("branchedit.xhtml")|| isCSSFile || isImageFile) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(req.getContextPath()+"/login.xhtml");
         }
 
+    }
+
+    private boolean isOneOfSites(String address, String[] uris) {
+        for (String uri : uris) {
+            if (!address.contains(uri)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

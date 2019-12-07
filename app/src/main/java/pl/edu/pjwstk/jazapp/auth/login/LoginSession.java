@@ -1,4 +1,6 @@
-package pl.edu.pjwstk.jazapp.auth;
+package pl.edu.pjwstk.jazapp.auth.login;
+
+import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -6,7 +8,7 @@ import java.io.Serializable;
 
 @Named
 @SessionScoped
-public class ProfileSession implements Serializable {
+public class LoginSession implements Serializable {
     private ProfileEnity loggedUser;
     private String name = "";
 

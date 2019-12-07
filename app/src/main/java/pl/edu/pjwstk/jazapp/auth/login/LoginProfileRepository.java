@@ -1,6 +1,7 @@
-package pl.edu.pjwstk.jazapp.auth;
+package pl.edu.pjwstk.jazapp.auth.login;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -11,36 +12,21 @@ import javax.transaction.Transactional;
 
 @Named
 @ApplicationScoped
-public class ProfileRepository {
+public class LoginProfileRepository {
 
     final private String BAD_LOGIN = "Incorrect username or password";
 
     @Inject
-    private ProfileSession session;
+    private LoginSession session;
 
     @PersistenceContext
     private EntityManager em;
 
     private String loginError;
 
-    public String getLoginError() { return loginError; }
-
-    @Transactional
-    public void registerUser(ProfileEnity pe) {
-        em.persist(pe);
+    public String getLoginError() {
+        return loginError;
     }
-
-    @Transactional
-    public boolean userExists(String username) {
-        ProfileEnity profile = em.find(ProfileEnity.class, username);
-        if (profile != null) return true;
-        return false;
-    }
-
-    /*@Transactional
-    public boolean emailExists(String email) {
-        ProfileEnity profile = em.find
-    }*/
 
     @Transactional
     public ProfileEnity getAndCheckUser(String username, String password) {

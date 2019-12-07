@@ -1,6 +1,7 @@
 package pl.edu.pjwstk.jazapp.auction.category;
 
-import pl.edu.pjwstk.jazapp.auction.Category;
+import pl.edu.pjwstk.jazapp.auction.entities.Branch;
+import pl.edu.pjwstk.jazapp.auction.entities.Category;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -29,6 +30,11 @@ public class CategoryRepository {
     @Transactional
     public List<Category> getCategories() {
         return em.createQuery("from Category order by name", Category.class).getResultList();
+    }
+
+    @Transactional
+    public Branch getBranch(String branchName) {
+        return em.createQuery("from Branch where name = :branchName", Branch.class).setParameter("branchName", branchName).getSingleResult();
     }
 
     @Transactional

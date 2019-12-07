@@ -1,6 +1,6 @@
-package pl.edu.pjwstk.jazapp.auction;
+package pl.edu.pjwstk.jazapp.auction.entities;
 
-import pl.edu.pjwstk.jazapp.auth.ProfileEnity;
+import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
