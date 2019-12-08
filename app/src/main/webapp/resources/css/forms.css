@@ -17,6 +17,15 @@ form {
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
+input[type=text], input[type=password], select{
+    width: 94%;
+    height: 32px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 #branch, #category {
     width: 100%;
     float: left;
@@ -41,13 +50,4 @@ form {
 a:link{
     color: #3a24a8;
     text-decoration: none;
-}
-
-input[type=text], input[type=password], select{
-    width: 94%;
-    height: 32px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid black;
-    border-radius: 5px;
 }

@@ -3,7 +3,9 @@ package pl.edu.pjwstk.jazapp.auth.login;
 import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 
 @Named
@@ -21,6 +23,12 @@ public class LoginSession implements Serializable {
     public void setLoggedUser(ProfileEnity loggedUser) {
         this.loggedUser = loggedUser;
         name = loggedUser.getName() + " " + loggedUser.getSurname();
+    }
+
+    public void logout() throws IOException {
+        this.loggedUser = null;
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("/app/login.xhtml");
     }
 
     public boolean userIsLogged() {

@@ -23,18 +23,25 @@ public class LoginFilter extends HttpFilter {
         boolean isCSSFile = req.getRequestURI().contains(".css");
         boolean isImageFile = req.getRequestURI().contains(".png");
 
-        if (req.getRequestURI().contains("auc"))
-        if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("branchedit.xhtml")|| isCSSFile || isImageFile) {
+        String[] authPages = { "login.xhtml", "register.xhtml" };
+        String[] adminPages = { "branchedit.xhtml", "categoryedit.xhtml" };
+
+        if (profileSession.userIsLogged() || isOneOfSites(req.getRequestURI(), authPages) || req.getRequestURI().contains("branchedit.xhtml")|| isCSSFile || isImageFile) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(req.getContextPath()+"/login.xhtml");
         }
-
+        /*
+        if (profileSession.userIsLogged() || req.getRequestURI().contains("login.xhtml") || req.getRequestURI().contains("register.xhtml") || req.getRequestURI().contains("branchedit.xhtml")|| isCSSFile || isImageFile) {
+            chain.doFilter(req, res);
+        } else {
+            res.sendRedirect(req.getContextPath()+"/login.xhtml");
+        }*/
     }
 
     private boolean isOneOfSites(String address, String[] uris) {
         for (String uri : uris) {
-            if (!address.contains(uri)) {
+            if (address.contains(uri)) {
                 return true;
             }
         }
