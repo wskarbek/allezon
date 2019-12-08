@@ -24,7 +24,7 @@ public class LoginFilter extends HttpFilter {
         boolean isImageFile = req.getRequestURI().contains(".png");
 
         String[] authPages = { "login.xhtml", "register.xhtml" };
-        String[] adminPages = { "branchedit.xhtml" };
+        String[] adminPages = { "branchedit.xhtml", "admin.xhtml" };
 
         if(isOneOfSites(req.getRequestURI(), adminPages)) {
             if(loginSession.getCurrentUser() != null) {

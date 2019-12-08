@@ -13,3 +13,10 @@ databaseChangeLog:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20191113_init.sql
+  - changeSet:
+      id: 20191208_init
+      author: Wojciech Skarbek
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191208_init.sql
