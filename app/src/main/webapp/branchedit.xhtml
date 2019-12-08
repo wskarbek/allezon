@@ -10,7 +10,7 @@
         <title>Add/Edit branches</title>
     </h:head>
     <h:body>
-        <ui:composition template="/template/forms/template.xhtml">
+        <ui:composition template="/template/edit/template.xhtml">
             <ui:define name="content">
                 <div id="content">
                     <div id="branch">
@@ -47,7 +47,6 @@
                             <h:commandButton styleClass="button" value="Update" action="#{branchController.update}"/>
                         </h:form>
                     </div>
-                    <!--
                     <div id="category">
                         <h:form id="categoryFormAdd">
                             <h3>Add categories</h3>
@@ -96,7 +95,6 @@
                             <h:commandButton styleClass="button" value="Update" action="#{categoryController.update}"/>
                         </h:form>
                     </div>
-                    -->
                 </div>
             </ui:define>
         </ui:composition>

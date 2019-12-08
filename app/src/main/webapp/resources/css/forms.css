@@ -26,23 +26,6 @@ input[type=text], input[type=password], select{
     border-radius: 5px;
 }
 
-#branch, #category {
-    width: 100%;
-    float: left;
-}
-
-#branchFormAdd, #branchFormEdit, #categoryFormAdd, #categoryFormEdit {
-    display: inline-block;
-}
-
-#formError, #categoryFormAddError, #branchFormAddError {
-    color: red;
-}
-
-#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess {
-    color: #2b4b05;
-}
-
 #accounts {
     font-size: 12px;
 }

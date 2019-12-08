@@ -1,0 +1,36 @@
+#branch, #category {
+    width: 100%;
+    float: left;
+}
+
+#branchFormAdd, #branchFormEdit, #categoryFormAdd, #categoryFormEdit {
+    display: inline-block;
+}
+
+#formError, #categoryFormAddError, #branchFormAddError {
+    color: red;
+}
+
+#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess {
+    color: #2b4b05;
+}
+
+#content input[type=text], #content input[type=password], #content select{
+    width: 94%;
+    height: 32px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#content form {
+    margin: 8px auto auto;
+    padding: 0;
+    width: 300px;
+    color: #121843;
+    background-color: lightsteelblue;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
