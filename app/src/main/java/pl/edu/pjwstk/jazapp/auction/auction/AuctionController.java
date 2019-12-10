@@ -21,22 +21,24 @@ public class AuctionController {
     private AuctionRepository auctionRepository;
 
     @Inject
-    private LoginProfileRepository profileRepository;
-
-    @Inject
-    private CategoryRepository categoryRepository;
-
-    @Inject
     private LoginSession profileSession;
 
     private String error = "";
     private String success = "";
 
+    public String getError() {
+        return error;
+    }
+
+    public String getSuccess() {
+        return success;
+    }
+
     public void add() {
         System.out.println("Tried to add " + auctionRequest.toString());
         String name = auctionRequest.getName();
         ProfileEnity owner = profileSession.getCurrentUser();
-        Category category = categoryRepository.getCategory(auctionRequest.getCategoryName());
+        Category category = auctionRepository.getCategory(auctionRequest.getCategoryName());
         float price = auctionRequest.getPrice();
         String description = auctionRequest.getDescription();
         auctionRepository.add(new Auction(name, owner, category, price, description));

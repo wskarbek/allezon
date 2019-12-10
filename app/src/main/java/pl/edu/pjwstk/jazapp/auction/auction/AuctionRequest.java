@@ -11,15 +11,37 @@ public class AuctionRequest {
     private float price;
     private String description;
 
-    public String getName() { return name; }
+    public String getCategoryName() {
+        return categoryName;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 
-    public String getCategoryName() { return categoryName; }
+    public String getName() {
+        return name;
+    }
 
-    public float getPrice() { return price; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getDescription() { return description; }
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public String toString() {

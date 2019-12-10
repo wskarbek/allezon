@@ -7,11 +7,11 @@
     display: inline-block;
 }
 
-#formError, #categoryFormAddError, #branchFormAddError {
+#formError, #categoryFormAddError, #branchFormAddError, #auctionFormAddError {
     color: red;
 }
 
-#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess {
+#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess, #auctionFormAddSuccess {
     color: #2b4b05;
 }
 

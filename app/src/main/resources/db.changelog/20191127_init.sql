@@ -12,12 +12,12 @@ CREATE TABLE profile
 
     PRIMARY KEY (username)
 );
-
+--Admin password: Admin1
 INSERT INTO profile (username, password, name, surname, email, birthday, admin) VALUES
-                    ('jesieniarz',
-                     '$2a$10$aE.SCh1tvQSs6wV0V8GowO36WV2oKpQYSHc9/qTlJ4g/m4LukH/ge',
+                    ('admin',
+                     '$2a$10$rWKQ3DIcvV5LQKujLPd2f.N2R/yUJsRZNJ0D2mtrV50k/2nBwHDRi',
                      'Wojciech',
                      'Skarbek',
-                     'woj.skarbek@gmail.com',
+                     'admin@fakemail.com',
                      '09/08/1998',
                      TRUE);
