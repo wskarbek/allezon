@@ -45,4 +45,20 @@ public class Auction {
         this.description = description;
     }
     public Auction() {}
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPriceString() {
+        return String.valueOf(price);
+    }
+
+    public String getOwnerName() {
+        return owner.getUsername();
+    }
+
+    public String getIdString() {
+        return String.valueOf(id);
+    }
 }

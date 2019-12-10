@@ -41,4 +41,9 @@ public class AuctionRepository {
     public List<Category> getCategories() {
         return em.createQuery("from Category order by name", Category.class).getResultList();
     }
+
+    @Transactional
+    public List<Auction> getAuctions() {
+        return em.createQuery("from Auction order by name", Auction.class).getResultList();
+    }
 }

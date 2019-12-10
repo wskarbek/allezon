@@ -31,7 +31,7 @@ CREATE TABLE auction
     category INTEGER NOT NULL,
     name VARCHAR(255) NOT NULL,
     price FLOAT NOT NULL,
-    description TEXT NOT NULL,
+    description TEXT,
 
     PRIMARY KEY (id),
     FOREIGN KEY (owner) REFERENCES profile(username),

@@ -15,9 +15,11 @@ body {
 }
 
 #content {
-    width: 100%;
+    width: 90%;
     height: 80%;
     display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #footer {
@@ -33,6 +35,23 @@ body {
 }
 
 #messages td { white-space: pre; }
+
+#auctionList {
+    text-align: center;
+    width: 100%;
+}
+
+#auctionsTable {
+    width: 60%;
+}
+
+table, th, td {
+    border: 1px solid darkslategrey;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
 
 /*https://stackoverflow.com/questions/3313383/jsf-commandbutton-styling
 https://www.w3schools.com/howto/howto_css_animate_buttons.asp*/

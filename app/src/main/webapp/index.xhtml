@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
 
     <h:head>
@@ -22,6 +23,39 @@
                         <h:outputText value=" #{loginSession.name}"/>
                         !
                     </h2>
+                </div>
+                <div id="auctionList">
+                    <div id="auctionsTable">
+                        <table align="center">
+                            <col style="width:10%"/>
+                            <col style="width:80%"/>
+                            <col style="width:5%"/>
+                            <col style="width:5%"/>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Seller</th>
+                                <th>Price</th>
+                            </tr>
+                            <c:forEach items="#{auctionRepository.auctions}" var="auction" varStatus="metadata">
+                                <tr>
+                                    <td><!--photo--></td>
+                                    <td>
+                                        <h:link outcome="auction">
+                                            <f:param name="auctionId" value="#{auction.idString}"/>
+                                            <h:outputText  value="#{auction.name}"/>
+                                        </h:link>
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{auction.ownerName}"/>
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{auction.priceString} PLN"/>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
                 </div>
             </ui:define>
         </ui:composition>
