@@ -1,0 +1,11 @@
+#content form {
+    margin: 8px auto auto;
+    padding: 0;
+    width: 100px;
+    color: #121843;
+    background-color: lightsteelblue;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    text-align: center;
+}

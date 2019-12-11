@@ -43,6 +43,11 @@ public class AuctionRepository {
     }
 
     @Transactional
+    public Auction getAuctionById(Integer id) {
+        return em.createQuery("from Auction where id = :id", Auction.class).setParameter("id", id).getSingleResult();
+    }
+
+    @Transactional
     public List<Auction> getAuctions() {
         return em.createQuery("from Auction order by name", Auction.class).getResultList();
     }

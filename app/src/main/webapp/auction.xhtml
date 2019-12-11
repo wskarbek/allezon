@@ -9,13 +9,32 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
 
+    <f:metadata>
+        <f:viewParam name="auctionId" value="#{auctionDisplay.id}"/>
+    </f:metadata>
     <h:head>
         <title>Allezon</title>
     </h:head>
     <h:body>
-        <ui:composition template="/template/common/template.xhtml">
+        <ui:composition template="/template/auction/template.xhtml">
             <ui:define name="content">
+                <div id="auction">
+                    <div id="auctionTitle">
+                        <h2><h:outputText value="#{auctionDisplay.name}"/></h2>
+                    </div>
+                    <div id="auctionGallery">
 
+                    </div>
+                    <div id="auctionBuy">
+                        <h:form id="auctionBuyForm">
+                            <h5><h:outputText value="Price: #{auctionDisplay.price} PLN"/></h5>
+                            <h:commandButton styleClass="button" value="Buy" disabled="true"/>
+                        </h:form>
+                    </div>
+                    <div id="auctionDescription">
+                        <p><h:outputText value="#{auctionDisplay.description}"/></p>
+                    </div>
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>

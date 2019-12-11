@@ -58,7 +58,11 @@ public class Auction {
         return owner.getUsername();
     }
 
+    public Integer getId() { return id; }
+
     public String getIdString() {
         return String.valueOf(id);
     }
+
+    public String getDescription() { return description; }
 }
