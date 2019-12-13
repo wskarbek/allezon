@@ -52,4 +52,6 @@ public class AuctionDisplay implements Serializable {
     }
 
     public List<Photo> getPhotos() { return auction.getPhotos(); }
+
+    public Photo getThumbnail() { return auction.getPhoto(); }
 }

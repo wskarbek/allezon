@@ -43,12 +43,12 @@
                                 <h:message for="descriptionField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Thumbnail">
-                                <h:inputFile value="#{auctionRequest.thumbnail}" accept=".png, .jpg"/>
+                                <h:inputFile value="#{auctionRequest.thumbnail}"/>
                             </h:outputLabel>
                             <h:outputLabel value="More photos...">
-                                <h:inputFile value="#{auctionRequest.photoOne}" accept=".png, .jpg"/>
-                                <h:inputFile value="#{auctionRequest.photoTwo}" accept=".png, .jpg"/>
-                                <h:inputFile value="#{auctionRequest.photoThree}" accept=".png, .jpg"/>
+                                <h:inputFile value="#{auctionRequest.photoOne}"/>
+                                <h:inputFile value="#{auctionRequest.photoTwo}"/>
+                                <h:inputFile value="#{auctionRequest.photoThree}"/>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Update" action="#{auctionController.add}"/>
                         </h:form>

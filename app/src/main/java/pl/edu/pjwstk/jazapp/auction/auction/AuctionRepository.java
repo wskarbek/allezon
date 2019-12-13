@@ -29,11 +29,6 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public Auction getAuctionByName(String name) {
-        return em.createQuery("from Auction where name = :auctionName", Auction.class).setParameter("auctionName", name).getSingleResult();
-    }
-
-    @Transactional
     public Auction getAuctionById(Integer id) {
         return em.createQuery("from Auction where id = :id", Auction.class).setParameter("id", id).getSingleResult();
     }
@@ -42,4 +37,9 @@ public class AuctionRepository {
     public List<Auction> getAuctions() {
         return em.createQuery("from Auction order by name", Auction.class).getResultList();
     }
+
+    /*@Transactional
+    public List<Auction> getMyAuctions() {
+        //return em.createQuery();
+    }*/
 }

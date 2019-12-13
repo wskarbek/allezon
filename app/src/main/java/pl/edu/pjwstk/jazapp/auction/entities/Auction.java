@@ -67,4 +67,9 @@ public class Auction {
     public String getDescription() { return description; }
 
     public List<Photo> getPhotos() { return photoList; }
+
+    public Photo getPhoto() {
+        if(photoList.get(0) != null) return photoList.get(0);
+        else return null;
+    }
 }

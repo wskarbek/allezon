@@ -4,12 +4,16 @@
     width: 100%;
     color: #121843;
     background-color: lightsteelblue;
-    border: 1px solid black;
+    border: 2px solid #121843;
     height: 45px;
 }
 
-img{
+#header img{
     height: 40px;
+}
+
+.auctionphoto {
+    width: 200px;
 }
 
 #buttons {

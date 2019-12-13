@@ -39,7 +39,9 @@
                             </tr>
                             <c:forEach items="#{auctionRepository.auctions}" var="auction" varStatus="metadata">
                                 <tr>
-                                    <td><!--photo--></td>
+                                    <td>
+                                        <h:graphicImage value="images/#{auction.photo.file}" class="auctionphoto"/>
+                                    </td>
                                     <td>
                                         <h:link outcome="auction">
                                             <f:param name="auctionId" value="#{auction.idString}"/>
