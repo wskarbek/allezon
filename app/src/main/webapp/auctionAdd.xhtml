@@ -15,7 +15,7 @@
             <ui:define name="content">
                 <div id="content">
                     <div id="auction">
-                        <h:form id="auctionFormAdd">
+                        <h:form id="auctionFormAdd" enctype="multipart/form-data">
                             <h3>Create auction</h3>
                             <div id="auctionFormAddError">
                                 <h:outputText value="#{auctionController.error}"/>
@@ -29,7 +29,7 @@
                             </h:outputLabel>
                             <h:outputLabel value="Category">
                                 <h:selectOneMenu value="#{auctionRequest.categoryName}">
-                                    <c:forEach items="#{auctionRepository.categories}" var="category" varStatus="metadata">
+                                    <c:forEach items="#{categoryRepository.categories}" var="category" varStatus="metadata">
                                         <f:selectItem itemValue="#{category.name}"/>
                                     </c:forEach>
                                 </h:selectOneMenu>
@@ -41,6 +41,14 @@
                             <h:outputLabel value="Description">
                                 <h:inputText id="descriptionField" value="#{auctionRequest.description}"/>
                                 <h:message for="descriptionField"/>
+                            </h:outputLabel>
+                            <h:outputLabel value="Thumbnail">
+                                <h:inputFile value="#{auctionRequest.thumbnail}"/>
+                            </h:outputLabel>
+                            <h:outputLabel value="More photos...">
+                                <h:inputFile value="#{auctionRequest.photoOne}"/>
+                                <h:inputFile value="#{auctionRequest.photoTwo}"/>
+                                <h:inputFile value="#{auctionRequest.photoThree}"/>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Update" action="#{auctionController.add}"/>
                         </h:form>

@@ -39,4 +39,13 @@ public class LoginSession implements Serializable {
     public ProfileEnity getCurrentUser() {
         return loggedUser;
     }
+
+    public boolean isAdmin() {
+        return loggedUser.getAdmin();
+    }
+
+    public void adminPanel() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("/app/admin.xhtml");
+    }
 }

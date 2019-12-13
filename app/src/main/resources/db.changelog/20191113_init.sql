@@ -40,7 +40,7 @@ CREATE TABLE auction
 
 CREATE TABLE photos
 (
-    id INTEGER NOT NULL,
+    id SERIAL NOT NULL,
     auction_id INTEGER NOT NULL,
     file VARCHAR(255) NOT NULL,
 

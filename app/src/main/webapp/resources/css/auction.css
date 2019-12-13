@@ -9,3 +9,23 @@
     font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
     text-align: center;
 }
+
+#auctionTitle {
+    width: 100%;
+    float: left;
+}
+
+#auctionPhotos {
+    width: 90%;
+    float: left;
+}
+
+#auctionBuy {
+    width: 10%;
+    float: left;
+}
+
+#auctionDescription {
+    width: 100%;
+    float: left;
+}

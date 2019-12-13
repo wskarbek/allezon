@@ -17,8 +17,10 @@ public class AuctionRepository {
     private EntityManager em;
 
     @Transactional
-    public void add(Auction auction) {
+    public Integer add(Auction auction) {
         em.persist(auction);
+        em.flush();
+        return auction.getId();
     }
 
     @Transactional
@@ -27,19 +29,8 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public boolean exist(String name) {
-        var auction = em.createQuery("from Auction where name = :auctionName", Auction.class).setParameter("auctionName", name);
-        return auction == null;
-    }
-
-    @Transactional
-    public Category getCategory(String categoryName) {
-        return em.createQuery("from Category where name = :categoryName", Category.class).setParameter("categoryName", categoryName).getSingleResult();
-    }
-
-    @Transactional
-    public List<Category> getCategories() {
-        return em.createQuery("from Category order by name", Category.class).getResultList();
+    public Auction getAuctionByName(String name) {
+        return em.createQuery("from Auction where name = :auctionName", Auction.class).setParameter("auctionName", name).getSingleResult();
     }
 
     @Transactional

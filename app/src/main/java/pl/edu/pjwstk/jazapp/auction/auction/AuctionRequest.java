@@ -2,6 +2,9 @@ package pl.edu.pjwstk.jazapp.auction.auction;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.servlet.http.Part;
+import java.util.ArrayList;
+import java.util.List;
 
 @Named
 @RequestScoped
@@ -10,6 +13,7 @@ public class AuctionRequest {
     private String name;
     private float price;
     private String description;
+    private Part thumbnail, photoOne, photoTwo, photoThree;
 
     public String getCategoryName() {
         return categoryName;
@@ -43,9 +47,41 @@ public class AuctionRequest {
         this.description = description;
     }
 
+    public Part getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(Part thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public Part getPhotoOne() {
+        return photoOne;
+    }
+
+    public void setPhotoOne(Part photoOne) {
+        this.photoOne = photoOne;
+    }
+
+    public Part getPhotoTwo() {
+        return photoTwo;
+    }
+
+    public void setPhotoTwo(Part photoTwo) {
+        this.photoTwo = photoTwo;
+    }
+
+    public Part getPhotoThree() {
+        return photoThree;
+    }
+
+    public void setPhotoThree(Part photoThree) {
+        this.photoThree = photoThree;
+    }
+
     @Override
     public String toString() {
-        return "Category{" +
+        return "Auction{" +
                 "name='" + name + "\n'" +
                 "category='" + categoryName + "\n'" +
                 "price='" + price + "\n'" +

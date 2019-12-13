@@ -22,8 +22,10 @@
                     <div id="auctionTitle">
                         <h2><h:outputText value="#{auctionDisplay.name}"/></h2>
                     </div>
-                    <div id="auctionGallery">
-
+                    <div id="auctionPhotos">
+                        <c:forEach items="#{auctionDisplay.photos}" var="photo" varStatus="metadata">
+                            <h:graphicImage value="images/#{photo.file}" alt="photo"/>
+                        </c:forEach>
                     </div>
                     <div id="auctionBuy">
                         <h:form id="auctionBuyForm">

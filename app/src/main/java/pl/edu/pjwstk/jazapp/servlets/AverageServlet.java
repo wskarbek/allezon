@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp;
+package pl.edu.pjwstk.jazapp.servlets;
 //Test change
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

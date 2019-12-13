@@ -31,8 +31,8 @@ public class Auction {
     @Column(name = "description")
     private String description;
 
-    @OneToMany
-    private List<Photos> photosList = new ArrayList<>();
+    @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER)
+    private List<Photo> photoList = new ArrayList<>();
 
     @OneToMany
     private List<AuctionParameter> auctionParameterList = new ArrayList<>();
@@ -65,4 +65,6 @@ public class Auction {
     }
 
     public String getDescription() { return description; }
+
+    public List<Photo> getPhotos() { return photoList; }
 }

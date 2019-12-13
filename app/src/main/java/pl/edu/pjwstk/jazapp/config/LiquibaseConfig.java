@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jazapp;
+package pl.edu.pjwstk.jazapp.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

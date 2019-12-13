@@ -1,15 +1,12 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
-import pl.edu.pjwstk.jazapp.auction.entities.Auction;
-import pl.edu.pjwstk.jazapp.auction.entities.Category;
-import pl.edu.pjwstk.jazapp.auction.category.CategoryRepository;
-import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
-import pl.edu.pjwstk.jazapp.auth.login.LoginProfileRepository;
-import pl.edu.pjwstk.jazapp.auth.login.LoginSession;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.Part;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Named
 @RequestScoped
@@ -18,10 +15,7 @@ public class AuctionController {
     private AuctionRequest auctionRequest;
 
     @Inject
-    private AuctionRepository auctionRepository;
-
-    @Inject
-    private LoginSession profileSession;
+    private AuctionCreator auctionCreator;
 
     private String error = "";
     private String success = "";
@@ -34,14 +28,19 @@ public class AuctionController {
         return success;
     }
 
-    public void add() {
+    public void add() throws IOException {
         System.out.println("Tried to add " + auctionRequest.toString());
         String name = auctionRequest.getName();
-        ProfileEnity owner = profileSession.getCurrentUser();
-        Category category = auctionRepository.getCategory(auctionRequest.getCategoryName());
+        String categoryName = auctionRequest.getCategoryName();
         float price = auctionRequest.getPrice();
         String description = auctionRequest.getDescription();
-        auctionRepository.add(new Auction(name, owner, category, price, description));
+        List<Part> photosList = new ArrayList<>();
+        if(auctionRequest.getThumbnail()!=null) photosList.add(auctionRequest.getThumbnail());
+        if(auctionRequest.getPhotoOne()!=null) photosList.add(auctionRequest.getPhotoOne());
+        if(auctionRequest.getPhotoTwo()!=null) photosList.add(auctionRequest.getPhotoTwo());
+        if(auctionRequest.getPhotoThree()!=null) photosList.add(auctionRequest.getPhotoThree());
+
+        auctionCreator.createAuction(name, categoryName, price, description, photosList);
     }
 
 }
