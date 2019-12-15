@@ -10,7 +10,7 @@
 >
 
     <f:metadata>
-        <f:viewParam name="auctionId" value="#{auctionDisplay.id}"/>
+        <f:viewParam name="auctionId" value="#{auctionRequestDisplay.id}"/>
     </f:metadata>
     <h:head>
         <title>Allezon</title>
@@ -20,21 +20,21 @@
             <ui:define name="content">
                 <div id="auction">
                     <div id="auctionTitle">
-                        <h2><h:outputText value="#{auctionDisplay.name}"/></h2>
+                        <h2><h:outputText value="#{auctionRequestDisplay.name}"/></h2>
                     </div>
                     <div id="auctionPhotos">
-                        <c:forEach items="#{auctionDisplay.photos}" var="photo" varStatus="metadata">
+                        <c:forEach items="#{auctionRequestDisplay.photos}" var="photo" varStatus="metadata">
                             <h:graphicImage value="images/#{photo.file}" alt="photo"/>
                         </c:forEach>
                     </div>
                     <div id="auctionBuy">
                         <h:form id="auctionBuyForm">
-                            <h5><h:outputText value="Price: #{auctionDisplay.price} PLN"/></h5>
+                            <h5><h:outputText value="Price: #{auctionRequestDisplay.price} PLN"/></h5>
                             <h:commandButton styleClass="button" value="Buy" disabled="true"/>
                         </h:form>
                     </div>
                     <div id="auctionDescription">
-                        <p><h:outputText value="#{auctionDisplay.description}"/></p>
+                        <p><h:outputText value="#{auctionRequestDisplay.description}"/></p>
                     </div>
                 </div>
             </ui:define>

@@ -7,6 +7,9 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
+    <f:metadata>
+        <f:viewParam name="auctionId" value="#{auctionRequestEdit.id}"/>
+    </f:metadata>
     <h:head>
         <title>Add/Edit branches</title>
     </h:head>
@@ -24,33 +27,33 @@
                                 <h:outputText value="#{auctionController.success}"/>
                             </div>
                             <h:outputLabel value="Name">
-                                <h:inputText id="auctionNameField" value="#{auctionRequest.name}"/>
+                                <h:inputText id="auctionNameField" value="#{auctionRequestEdit.name}"/>
                                 <h:message for="auctionNameField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Category">
-                                <h:selectOneMenu value="#{auctionRequest.categoryName}">
+                                <h:selectOneMenu value="#{auctionRequestEdit.categoryName}">
                                     <c:forEach items="#{categoryRepository.categories}" var="category" varStatus="metadata">
                                         <f:selectItem itemValue="#{category.name}"/>
                                     </c:forEach>
                                 </h:selectOneMenu>
                             </h:outputLabel>
                             <h:outputLabel value="Price">
-                                <h:inputText id="auctionPriceField" value="#{auctionRequest.price}"/>
+                                <h:inputText id="auctionPriceField" value="#{auctionRequestEdit.price}"/>
                                 <h:message for="auctionPriceField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Description">
-                                <h:inputText id="descriptionField" value="#{auctionRequest.description}"/>
+                                <h:inputText id="descriptionField" value="#{auctionRequestEdit.description}"/>
                                 <h:message for="descriptionField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Thumbnail">
-                                <h:inputFile value="#{auctionRequest.thumbnail}"/>
+                                <h:inputFile value="#{auctionRequestEdit.thumbnail}" required="true"/>
                             </h:outputLabel>
                             <h:outputLabel value="More photos...">
-                                <h:inputFile value="#{auctionRequest.photoOne}"/>
-                                <h:inputFile value="#{auctionRequest.photoTwo}"/>
-                                <h:inputFile value="#{auctionRequest.photoThree}"/>
+                                <h:inputFile value="#{auctionRequestEdit.photoOne}" required="true"/>
+                                <h:inputFile value="#{auctionRequestEdit.photoTwo}" required="true"/>
+                                <h:inputFile value="#{auctionRequestEdit.photoThree}" required="true"/>
                             </h:outputLabel>
-                            <h:commandButton styleClass="button" value="Update" action="#{auctionController.add}"/>
+                            <h:commandButton styleClass="button" value="Update" action="#{auctionController.update}"/>
                         </h:form>
                     </div>
                 </div>

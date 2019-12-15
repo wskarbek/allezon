@@ -27,7 +27,6 @@ public class RegisterController {
 
     public void register() throws IOException {
         System.out.println("Tried to register with" + registerRequest.toString());
-        //usersDatabase.registerUser(registerRequest.toAccount());
         if(pr.userExists(registerRequest.getUsername())) {
             registerError = "User already exists.";
             return;

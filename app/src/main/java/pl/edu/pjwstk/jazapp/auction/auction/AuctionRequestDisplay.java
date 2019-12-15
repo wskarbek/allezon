@@ -16,11 +16,13 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class AuctionDisplay implements Serializable {
+public class AuctionRequestDisplay implements Serializable {
 
     @Inject
     private AuctionRepository auctionRepository;
 
+    @Inject
+    private LoginSession loginSession;
 
     private Auction auction;
 
@@ -54,4 +56,6 @@ public class AuctionDisplay implements Serializable {
     public List<Photo> getPhotos() { return auction.getPhotos(); }
 
     public Photo getThumbnail() { return auction.getPhoto(); }
+
+    public List<Auction> getMyAuctions() { return auctionRepository.getAuctionsOfUser(loginSession.getCurrentUser()); }
 }

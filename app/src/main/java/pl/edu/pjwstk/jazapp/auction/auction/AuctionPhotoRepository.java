@@ -19,4 +19,11 @@ public class AuctionPhotoRepository {
         em.persist(photo);
     }
 
+    @Transactional
+    public void update(Photo photo) { em.merge(photo); }
+
+    @Transactional
+    public Photo getPhotoByAuction(Auction auction) {
+        return em.createQuery("from Photo where auction = :auction", Photo.class).setParameter("auction", auction).getSingleResult();
+    }
 }

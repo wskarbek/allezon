@@ -10,6 +10,7 @@
             </h:link>
         </div>
         <div id="buttons">
+            <button class="button" onclick="window.location.href = 'auctionMy.xhtml'">My auctions</button>
             <button class="button" onclick="window.location.href = 'auctionAdd.xhtml'">Add auction</button>
             <h:form>
                 <h:commandButton class="button" value="Admin panel" type="submit" rendered="#{loginSession.admin}" action="#{loginSession.adminPanel}"/>

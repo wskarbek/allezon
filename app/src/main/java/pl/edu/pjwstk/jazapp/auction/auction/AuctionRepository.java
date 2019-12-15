@@ -2,6 +2,7 @@ package pl.edu.pjwstk.jazapp.auction.auction;
 
 import pl.edu.pjwstk.jazapp.auction.entities.Auction;
 import pl.edu.pjwstk.jazapp.auction.entities.Category;
+import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -38,8 +39,8 @@ public class AuctionRepository {
         return em.createQuery("from Auction order by name", Auction.class).getResultList();
     }
 
-    /*@Transactional
-    public List<Auction> getMyAuctions() {
-        //return em.createQuery();
-    }*/
+    @Transactional
+    public List<Auction> getAuctionsOfUser(ProfileEnity user) {
+        return em.createQuery("from Auction where owner = :owner order by name", Auction.class).setParameter("owner", user).getResultList();
+    }
 }

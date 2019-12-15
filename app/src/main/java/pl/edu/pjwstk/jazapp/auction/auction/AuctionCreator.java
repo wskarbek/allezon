@@ -13,21 +13,22 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @RequestScoped
 public class AuctionCreator {
     @Inject
-    AuctionRepository auctionRepository;
+    private AuctionRepository auctionRepository;
 
     @Inject
-    AuctionPhotoRepository auctionPhotoRepository;
+    private AuctionPhotoRepository auctionPhotoRepository;
 
     @Inject
-    CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     @Inject
-    LoginSession loginSession;
+    private LoginSession loginSession;
 
     private Integer auctionID;
 
@@ -54,6 +55,25 @@ public class AuctionCreator {
                 System.out.println(e);
             }
             auctionPhotoRepository.add(new Photo(auctionRepository.getAuctionById(auctionID), "/" + auctionID + "/" + fileName));
+        }
+    }
+
+    public void updateAuction(Integer id, String name, String categoryName, float price, String description, List<Part> photosList){
+        Auction auction = auctionRepository.getAuctionById(id);
+        if(!name.equals("")) auction.setName(name);
+        if(!categoryName.equals("")) auction.setCategory(categoryRepository.getCategory(categoryName));
+        if(price != 0.0) auction.setPrice(price);
+        if(!description.equals("")) auction.setDescription(description);
+        auctionRepository.update(auction);
+
+        String location = LOCATION + id + "/";
+        for (int i = 0; i < photosList.size(); i++ ) {
+            try (InputStream input = photosList.get(i).getInputStream()) {
+                Files.copy(input, new File(location, Integer.toString(i)).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Photo updated");
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         }
     }
 }

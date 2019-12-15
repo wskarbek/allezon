@@ -68,8 +68,28 @@ public class Auction {
 
     public List<Photo> getPhotos() { return photoList; }
 
+    public void setOwner(ProfileEnity owner) {
+        this.owner = owner;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Photo getPhoto() {
-        if(photoList.get(0) != null) return photoList.get(0);
+        if(photoList.size() > 0) return photoList.get(0);
         else return null;
     }
 }

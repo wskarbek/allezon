@@ -24,7 +24,7 @@
                                 <h:outputText value="#{auctionController.success}"/>
                             </div>
                             <h:outputLabel value="Name">
-                                <h:inputText id="auctionNameField" value="#{auctionRequest.name}"/>
+                                <h:inputText id="auctionNameField" value="#{auctionRequest.name}" required="true"/>
                                 <h:message for="auctionNameField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Category">
@@ -35,7 +35,7 @@
                                 </h:selectOneMenu>
                             </h:outputLabel>
                             <h:outputLabel value="Price">
-                                <h:inputText id="auctionPriceField" value="#{auctionRequest.price}"/>
+                                <h:inputText id="auctionPriceField" value="#{auctionRequest.price}" required="true"/>
                                 <h:message for="auctionPriceField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Description">
@@ -43,14 +43,14 @@
                                 <h:message for="descriptionField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Thumbnail">
-                                <h:inputFile value="#{auctionRequest.thumbnail}" accept=".png, .jpg"/>
+                                <h:inputFile value="#{auctionRequest.thumbnail}" accept=".png, .jpg" required="true"/>
                             </h:outputLabel>
                             <h:outputLabel value="More photos...">
-                                <h:inputFile value="#{auctionRequest.photoOne}" accept=".png, .jpg"/>
-                                <h:inputFile value="#{auctionRequest.photoTwo}" accept=".png, .jpg"/>
-                                <h:inputFile value="#{auctionRequest.photoThree}" accept=".png, .jpg"/>
+                                <h:inputFile value="#{auctionRequest.photoOne}" accept=".png, .jpg" required="true"/>
+                                <h:inputFile value="#{auctionRequest.photoTwo}" accept=".png, .jpg" required="true"/>
+                                <h:inputFile value="#{auctionRequest.photoThree}" accept=".png, .jpg" required="true"/>
                             </h:outputLabel>
-                            <h:commandButton styleClass="button" value="Update" action="#{auctionController.add}"/>
+                            <h:commandButton styleClass="button" value="Create" action="#{auctionController.add}"/>
                         </h:form>
                     </div>
                 </div>

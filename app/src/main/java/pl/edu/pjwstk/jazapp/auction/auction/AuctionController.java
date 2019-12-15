@@ -15,6 +15,9 @@ public class AuctionController {
     private AuctionRequest auctionRequest;
 
     @Inject
+    private AuctionRequestEdit auctionRequestEdit;
+
+    @Inject
     private AuctionCreator auctionCreator;
 
     private String error = "";
@@ -34,13 +37,34 @@ public class AuctionController {
         String categoryName = auctionRequest.getCategoryName();
         float price = auctionRequest.getPrice();
         String description = auctionRequest.getDescription();
-        List<Part> photosList = new ArrayList<>();
-        if(auctionRequest.getThumbnail()!=null) photosList.add(auctionRequest.getThumbnail());
-        if(auctionRequest.getPhotoOne()!=null) photosList.add(auctionRequest.getPhotoOne());
-        if(auctionRequest.getPhotoTwo()!=null) photosList.add(auctionRequest.getPhotoTwo());
-        if(auctionRequest.getPhotoThree()!=null) photosList.add(auctionRequest.getPhotoThree());
 
-        auctionCreator.createAuction(name, categoryName, price, description, photosList);
+
+        auctionCreator.createAuction(
+                name,
+                categoryName,
+                price,
+                description,
+                createPhotoList(auctionRequest.getThumbnail(), auctionRequest.getPhotoOne(), auctionRequest.getPhotoTwo(), auctionRequest.getPhotoThree()));
     }
 
+    public void update() {
+        auctionCreator.updateAuction(
+                auctionRequestEdit.getId(),
+                auctionRequestEdit.getName(),
+                auctionRequestEdit.getCategoryName(),
+                auctionRequestEdit.getPrice(),
+                auctionRequestEdit.getDescription(),
+                createPhotoList(auctionRequestEdit.getThumbnail(), auctionRequestEdit.getPhotoOne(), auctionRequestEdit.getPhotoTwo(), auctionRequestEdit.getPhotoThree())
+        );
+
+    }
+
+    public List<Part> createPhotoList(Part thumbnail, Part one, Part two, Part three) {
+        List<Part> photosList = new ArrayList<>();
+        photosList.add(thumbnail);
+        photosList.add(one);
+        photosList.add(two);
+        photosList.add(three);
+        return photosList;
+    }
 }
