@@ -12,8 +12,11 @@
     height: 40px;
 }
 
-.auctionphoto {
-    width: 200px;
+img.auctionphoto {
+    height: auto;
+    width: auto;
+    max-width: 98%;
+    max-height: 200px;
 }
 
 #buttons {

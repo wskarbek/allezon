@@ -32,7 +32,9 @@ public class AuctionCreator {
 
     private Integer auctionID;
 
-    public static final String LOCATION = "D:/tmp/photos/";
+    //Location must exist!
+    public static final String LOCATION = "/home/jesieniarz/tmp/"; //Linux
+    //public static final String LOCATION = "D:/tmp/" //Windows
 
     public void createAuction(String name, String categoryName, float price, String description, List<Part> photosList){
         auctionID = auctionRepository.add(new Auction(

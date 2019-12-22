@@ -1,6 +1,7 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.Part;
@@ -45,9 +46,12 @@ public class AuctionController {
                 price,
                 description,
                 createPhotoList(auctionRequest.getThumbnail(), auctionRequest.getPhotoOne(), auctionRequest.getPhotoTwo(), auctionRequest.getPhotoThree()));
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("index.xhtml");
     }
 
-    public void update() {
+    public void update() throws IOException {
         auctionCreator.updateAuction(
                 auctionRequestEdit.getId(),
                 auctionRequestEdit.getName(),
@@ -56,7 +60,8 @@ public class AuctionController {
                 auctionRequestEdit.getDescription(),
                 createPhotoList(auctionRequestEdit.getThumbnail(), auctionRequestEdit.getPhotoOne(), auctionRequestEdit.getPhotoTwo(), auctionRequestEdit.getPhotoThree())
         );
-
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("auction.xhtml?autionId="+auctionRequestEdit.getId());
     }
 
     public List<Part> createPhotoList(Part thumbnail, Part one, Part two, Part three) {

@@ -14,6 +14,7 @@
             <button class="button" onclick="window.location.href = 'auctionAdd.xhtml'">Add auction</button>
             <h:form>
                 <h:commandButton class="button" value="Admin panel" type="submit" rendered="#{loginSession.admin}" action="#{loginSession.adminPanel}"/>
+                <h:outputText value="&#160;" />
                 <h:commandButton class="button" value="Log out" type="submit" action="#{loginSession.logout}"/>
             </h:form>
 

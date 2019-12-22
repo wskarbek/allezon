@@ -58,4 +58,6 @@ public class AuctionRequestDisplay implements Serializable {
     public Photo getThumbnail() { return auction.getPhoto(); }
 
     public List<Auction> getMyAuctions() { return auctionRepository.getAuctionsOfUser(loginSession.getCurrentUser()); }
+
+    public List<Auction> getAuctions() { return auctionRepository.getAuctions(); }
 }

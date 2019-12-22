@@ -41,13 +41,13 @@ body {
 }
 
 #auctionsTable {
-    width: 80%;
+    width: 100%;
 }
 
 table, th, td {
-    border: 1px solid darkslategrey;
+    border: 2px solid darkslategrey;
     border-spacing: 0;
-    border-collapse: collapse;
+    background-color:lightsteelblue;
 }
 
 

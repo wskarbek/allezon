@@ -28,16 +28,20 @@
                     <div id="auctionsTable">
                         <table align="center">
                             <col style="width:20%"/>
-                            <col style="width:65%"/>
+                            <col style="width:30%"/>
+                            <col style="width:20%"/>
                             <col style="width:10%"/>
-                            <col style="width:5%"/>
+                            <col style="width:10%"/>
+                            <col style="width:10%"/>
                             <tr>
                                 <th></th>
                                 <th>Name</th>
+                                <th>Category</th>
+                                <th>Parameters</th>
                                 <th>Seller</th>
                                 <th>Price</th>
                             </tr>
-                            <c:forEach items="#{auctionRepository.auctions}" var="auction" varStatus="metadata">
+                            <c:forEach items="#{auctionRequestDisplay.auctions}" var="auction" varStatus="metadata">
                                 <tr>
                                     <td>
                                         <h:graphicImage value="images/#{auction.photo.file}" class="auctionphoto"/>
@@ -47,6 +51,12 @@
                                             <f:param name="auctionId" value="#{auction.idString}"/>
                                             <h:outputText value="#{auction.name}"/>
                                         </h:link>
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{auction.categoryName}"/>
+                                    </td>
+                                    <td>
+                                        <!--params-->
                                     </td>
                                     <td>
                                         <h:outputText value="#{auction.ownerName}"/>

@@ -92,4 +92,8 @@ public class Auction {
         if(photoList.size() > 0) return photoList.get(0);
         else return null;
     }
+
+    public String getCategoryName() {
+        return category.getName();
+    }
 }
