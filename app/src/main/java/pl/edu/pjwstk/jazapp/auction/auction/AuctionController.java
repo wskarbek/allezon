@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
+import pl.edu.pjwstk.jazapp.auction.entities.Photo;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -13,7 +15,7 @@ import java.util.List;
 @RequestScoped
 public class AuctionController {
     @Inject
-    private AuctionRequest auctionRequest;
+    private AuctionRequestAdd auctionRequestAdd;
 
     @Inject
     private AuctionRequestEdit auctionRequestEdit;
@@ -32,12 +34,21 @@ public class AuctionController {
         return success;
     }
 
-    public void add() throws IOException {
-        System.out.println("Tried to add " + auctionRequest.toString());
-        String name = auctionRequest.getName();
-        String categoryName = auctionRequest.getCategoryName();
-        float price = auctionRequest.getPrice();
-        String description = auctionRequest.getDescription();
+    public void submit() throws IOException {
+        if(auctionRequestEdit.getId()==null) {
+            add();
+        } else {
+            update();
+        }
+    }
+
+    private void add() throws IOException {
+        System.out.println("Tried to add " + auctionRequestEdit.toString());
+        String name = auctionRequestEdit.getName();
+        String categoryName = auctionRequestEdit.getCategoryName();
+        float price = auctionRequestEdit.getPrice();
+        String description = auctionRequestAdd.getDescription();
+        List<Part> photos = createPhotoList(auctionRequestEdit.getThumbnail(), auctionRequestEdit.getPhotoOne(), auctionRequestEdit.getPhotoTwo(), auctionRequestEdit.getPhotoThree());
 
 
         auctionCreator.createAuction(
@@ -45,7 +56,26 @@ public class AuctionController {
                 categoryName,
                 price,
                 description,
-                createPhotoList(auctionRequest.getThumbnail(), auctionRequest.getPhotoOne(), auctionRequest.getPhotoTwo(), auctionRequest.getPhotoThree()));
+                photos);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("index.xhtml");
+    }
+
+    public void oldAdd() throws IOException {
+        System.out.println("Tried to add " + auctionRequestAdd.toString());
+        String name = auctionRequestAdd.getName();
+        String categoryName = auctionRequestAdd.getCategoryName();
+        float price = auctionRequestAdd.getPrice();
+        String description = auctionRequestAdd.getDescription();
+
+
+        auctionCreator.createAuction(
+                name,
+                categoryName,
+                price,
+                description,
+                createPhotoList(auctionRequestAdd.getThumbnail(), auctionRequestAdd.getPhotoOne(), auctionRequestAdd.getPhotoTwo(), auctionRequestAdd.getPhotoThree()));
 
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().redirect("index.xhtml");

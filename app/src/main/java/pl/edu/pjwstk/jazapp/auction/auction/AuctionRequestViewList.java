@@ -12,7 +12,7 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class AuctionRequestDisplayList implements Serializable {
+public class AuctionRequestViewList implements Serializable {
 
     @Inject
     private AuctionRepository auctionRepository;

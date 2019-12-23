@@ -1,17 +1,18 @@
-#branch, #category {
+#branch, #category, #parameter {
     width: 100%;
     float: left;
 }
 
-#branchFormAdd, #branchFormEdit, #categoryFormAdd, #categoryFormEdit {
+#branchFormAdd, #branchFormEdit, #categoryFormAdd, #categoryFormEdit, #parameterFormAdd, #parameterFormEdit {
     display: inline-block;
 }
 
-#formError, #categoryFormAddError, #branchFormAddError, #auctionFormAddError {
+#formError, #categoryFormAddError, #branchFormAddError, #auctionFormAddError, #parameterFormAddError {
     color: red;
 }
 
-#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess, #auctionFormAddSuccess {
+#branchEditFormAddSuccess, #branchFormEditSuccess, #categoryFormAddSuccess, #categoryFormEditSuccess, #auctionFormAddSuccess,
+#parameterFormAddSuccess, #parameterFormEditSuccess{
     color: #2b4b05;
 }
 

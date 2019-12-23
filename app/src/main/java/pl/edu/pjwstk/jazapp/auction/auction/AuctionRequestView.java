@@ -11,7 +11,7 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class AuctionRequestDisplay implements Serializable {
+public class AuctionRequestView implements Serializable {
 
     @Inject
     private AuctionRepository auctionRepository;

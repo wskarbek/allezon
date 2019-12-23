@@ -96,6 +96,40 @@
                             <h:commandButton styleClass="button" value="Update" action="#{categoryController.update}"/>
                         </h:form>
                     </div>
+                    <div id="parameter">
+                        <h:form id="parameterFormAdd">
+                            <h3>Add parameters</h3>
+                            <div id="parameterFormAddError">
+                                <h:outputText value="#{paramController.error}"/>
+                            </div>
+                            <div id="parameterEditFormAddSuccess">
+                                <h:outputText value="#{paramController.success}"/>
+                            </div>
+                            <h:outputLabel value="Name">
+                                <h:inputText id="parameterNameField" value="#{paramRequest.name}"/>
+                                <h:message for="parameterNameField"/>
+                            </h:outputLabel>
+                            <h:commandButton styleClass="button" value="Add" action="#{paramController.add}"/>
+                        </h:form>
+                        <h:form id="parameterFormEdit">
+                            <h3>Edit parameters</h3>
+                            <div id="parameterFormEditSuccess">
+                                <h:outputText value="#{paramController.successEdit}"/>
+                            </div>
+                            <h:outputLabel value="Parameter">
+                                <h:selectOneMenu value="#{paramRequestEdit.paramName}">
+                                    <c:forEach items="#{paramRepository.params}" var="param" varStatus="metadata">
+                                        <f:selectItem itemValue="#{param.name}"/>
+                                    </c:forEach>
+                                </h:selectOneMenu>
+                            </h:outputLabel>
+                            <h:outputLabel value="New Name">
+                                <h:inputText id="parameterNewNameField" value="#{paramRequestEdit.newName}"/>
+                                <h:message for="parameterNewNameField"/>
+                            </h:outputLabel>
+                            <h:commandButton styleClass="button" value="Update" action="#{paramController.update}"/>
+                        </h:form>
+                    </div>
                 </div>
             </ui:define>
         </ui:composition>

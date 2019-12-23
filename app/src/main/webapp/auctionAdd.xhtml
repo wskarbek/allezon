@@ -24,31 +24,40 @@
                                 <h:outputText value="#{auctionController.success}"/>
                             </div>
                             <h:outputLabel value="Name">
-                                <h:inputText id="auctionNameField" value="#{auctionRequest.name}" required="true"/>
+                                <h:inputText id="auctionNameField" value="#{auctionRequestAdd.name}" required="true"/>
                                 <h:message for="auctionNameField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Category">
-                                <h:selectOneMenu value="#{auctionRequest.categoryName}">
+                                <h:selectOneMenu value="#{auctionRequestAdd.categoryName}">
                                     <c:forEach items="#{categoryRepository.categories}" var="category" varStatus="metadata">
                                         <f:selectItem itemValue="#{category.name}"/>
                                     </c:forEach>
                                 </h:selectOneMenu>
                             </h:outputLabel>
                             <h:outputLabel value="Price">
-                                <h:inputText id="auctionPriceField" value="#{auctionRequest.price}" required="true"/>
+                                <h:inputText id="auctionPriceField" value="#{auctionRequestAdd.price}" required="true"/>
                                 <h:message for="auctionPriceField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Description">
-                                <h:inputText id="descriptionField" value="#{auctionRequest.description}"/>
+                                <h:inputText id="descriptionField" value="#{auctionRequestAdd.description}"/>
                                 <h:message for="descriptionField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Thumbnail">
-                                <h:inputFile value="#{auctionRequest.thumbnail}" accept=".png, .jpg" required="true"/>
+                                <h:inputFile value="#{auctionRequestAdd.thumbnail}" accept=".png, .jpg" required="true"/>
                             </h:outputLabel>
                             <h:outputLabel value="More photos...">
-                                <h:inputFile value="#{auctionRequest.photoOne}" accept=".png, .jpg" required="true"/>
-                                <h:inputFile value="#{auctionRequest.photoTwo}" accept=".png, .jpg" required="true"/>
-                                <h:inputFile value="#{auctionRequest.photoThree}" accept=".png, .jpg" required="true"/>
+                                <h:inputFile value="#{auctionRequestAdd.photoOne}" accept=".png, .jpg" required="true"/>
+                                <h:inputFile value="#{auctionRequestAdd.photoTwo}" accept=".png, .jpg" required="true"/>
+                                <h:inputFile value="#{auctionRequestAdd.photoThree}" accept=".png, .jpg" required="true"/>
+                            </h:outputLabel>
+                            <h:outputLabel value="Parameters">
+                                <ui:repeat value="#{auctionRequestAdd.parameterList}" var="auctionParameter">
+                                    <h:selectOneMenu value="#{auctionParameter.parameter}">
+                                        <c:forEach items="#{categoryRepository.categories}" var="category" varStatus="metadata">
+                                            <f:selectItem itemValue="#{category.name}"/>
+                                        </c:forEach>
+                                    </h:selectOneMenu>
+                                </ui:repeat>
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Create" action="#{auctionController.add}"/>
                         </h:form>

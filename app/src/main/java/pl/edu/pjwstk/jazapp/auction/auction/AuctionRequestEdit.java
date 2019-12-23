@@ -14,6 +14,10 @@ public class AuctionRequestEdit {
     private String description;
     private Part thumbnail, photoOne, photoTwo, photoThree;
 
+    public AuctionRequestEdit() {
+        id = null;
+    }
+
     public String getCategoryName() {
         return categoryName;
     }

@@ -31,6 +31,9 @@ public class Auction {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "is_edited")
+    private boolean isEdited;
+
     @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER)
     private List<Photo> photoList = new ArrayList<>();
 
@@ -87,6 +90,10 @@ public class Auction {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public boolean isEdited() { return isEdited; }
+
+    public void setEdited(boolean edited) { isEdited = edited; }
 
     public Photo getPhoto() {
         if(photoList.size() > 0) return photoList.get(0);

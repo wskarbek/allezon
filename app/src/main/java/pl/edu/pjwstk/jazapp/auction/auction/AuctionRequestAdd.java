@@ -1,5 +1,9 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
+import pl.edu.pjwstk.jazapp.auction.entities.AuctionParameter;
+import pl.edu.pjwstk.jazapp.auction.entities.Parameter;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.servlet.http.Part;
@@ -8,12 +12,19 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class AuctionRequest {
+public class AuctionRequestAdd {
     private String categoryName;
     private String name;
     private float price;
     private String description;
     private Part thumbnail, photoOne, photoTwo, photoThree;
+    private List<AuctionParameter> parameterList;
+
+    @PostConstruct
+    public void init() {
+        parameterList = new ArrayList<>();
+        parameterList.add(new AuctionParameter());
+    }
 
     public String getCategoryName() {
         return categoryName;
@@ -77,6 +88,14 @@ public class AuctionRequest {
 
     public void setPhotoThree(Part photoThree) {
         this.photoThree = photoThree;
+    }
+
+    public void setParameterList(List<AuctionParameter> parameterList) {
+        this.parameterList = parameterList;
+    }
+
+    public List<AuctionParameter> getParameterList() {
+        return parameterList;
     }
 
     @Override

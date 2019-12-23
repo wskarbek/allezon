@@ -33,7 +33,7 @@
                                 <th>Edit</th>
                                 <th>Price</th>
                             </tr>
-                            <c:forEach items="#{auctionRequestDisplayList.myAuctions}" var="auction" varStatus="metadata">
+                            <c:forEach items="#{auctionRequestViewList.myAuctions}" var="auction" varStatus="metadata">
                                 <tr>
                                     <td>
                                         <h:graphicImage value="images/#{auction.photo.file}" class="auctionphoto"/>
