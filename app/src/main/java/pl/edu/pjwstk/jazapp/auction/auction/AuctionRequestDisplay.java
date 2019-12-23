@@ -1,16 +1,11 @@
 package pl.edu.pjwstk.jazapp.auction.auction;
 
 import pl.edu.pjwstk.jazapp.auction.entities.Auction;
-import pl.edu.pjwstk.jazapp.auction.entities.Category;
 import pl.edu.pjwstk.jazapp.auction.entities.Photo;
-import pl.edu.pjwstk.jazapp.auth.entities.ProfileEnity;
-import pl.edu.pjwstk.jazapp.auth.login.LoginSession;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,9 +15,6 @@ public class AuctionRequestDisplay implements Serializable {
 
     @Inject
     private AuctionRepository auctionRepository;
-
-    @Inject
-    private LoginSession loginSession;
 
     private Auction auction;
 
@@ -57,7 +49,4 @@ public class AuctionRequestDisplay implements Serializable {
 
     public Photo getThumbnail() { return auction.getPhoto(); }
 
-    public List<Auction> getMyAuctions() { return auctionRepository.getAuctionsOfUser(loginSession.getCurrentUser()); }
-
-    public List<Auction> getAuctions() { return auctionRepository.getAuctions(); }
 }

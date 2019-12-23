@@ -51,7 +51,8 @@ public class AuctionController {
         context.getExternalContext().redirect("index.xhtml");
     }
 
-    public void update() throws IOException {
+    public void update() throws IOException{
+        System.out.println("Nie działam napomusz");
         auctionCreator.updateAuction(
                 auctionRequestEdit.getId(),
                 auctionRequestEdit.getName(),
@@ -61,15 +62,15 @@ public class AuctionController {
                 createPhotoList(auctionRequestEdit.getThumbnail(), auctionRequestEdit.getPhotoOne(), auctionRequestEdit.getPhotoTwo(), auctionRequestEdit.getPhotoThree())
         );
         FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().redirect("auction.xhtml?autionId="+auctionRequestEdit.getId());
+        context.getExternalContext().redirect("auction.xhtml?auctionId="+auctionRequestEdit.getId());
     }
 
     public List<Part> createPhotoList(Part thumbnail, Part one, Part two, Part three) {
         List<Part> photosList = new ArrayList<>();
-        photosList.add(thumbnail);
-        photosList.add(one);
-        photosList.add(two);
-        photosList.add(three);
+        if(thumbnail != null) photosList.add(thumbnail);
+        if(one != null) photosList.add(one);
+        if(two != null) photosList.add(two);
+        if(three != null) photosList.add(three);
         return photosList;
     }
 }

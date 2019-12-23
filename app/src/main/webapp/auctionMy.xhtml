@@ -15,6 +15,11 @@
     <h:body>
         <ui:composition template="/template/common/template.xhtml">
             <ui:define name="content">
+                <div id="welcome">
+                    <h2>
+                        Your auctions:
+                    </h2>
+                </div>
                 <div id="auctionList">
                     <div id="auctionsTable">
                         <table align="center">
@@ -28,7 +33,7 @@
                                 <th>Edit</th>
                                 <th>Price</th>
                             </tr>
-                            <c:forEach items="#{auctionRequestDisplay.myAuctions}" var="auction" varStatus="metadata">
+                            <c:forEach items="#{auctionRequestDisplayList.myAuctions}" var="auction" varStatus="metadata">
                                 <tr>
                                     <td>
                                         <h:graphicImage value="images/#{auction.photo.file}" class="auctionphoto"/>

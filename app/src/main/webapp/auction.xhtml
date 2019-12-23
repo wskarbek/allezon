@@ -24,7 +24,7 @@
                     </div>
                     <div id="auctionPhotos">
                         <c:forEach items="#{auctionRequestDisplay.photos}" var="photo" varStatus="metadata">
-                            <h:graphicImage value="images/#{photo.file}" alt="photo"/>
+                            <h:graphicImage value="images/#{photo.file}" alt="photo" class="auctionPhoto"/>
                         </c:forEach>
                     </div>
                     <div id="auctionBuy">

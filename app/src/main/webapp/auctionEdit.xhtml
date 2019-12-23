@@ -11,7 +11,7 @@
         <f:viewParam name="auctionId" value="#{auctionRequestEdit.id}"/>
     </f:metadata>
     <h:head>
-        <title>Add/Edit branches</title>
+        <title>Edit your auction</title>
     </h:head>
     <h:body>
         <ui:composition template="/template/edit/template.xhtml">
@@ -46,12 +46,12 @@
                                 <h:message for="descriptionField"/>
                             </h:outputLabel>
                             <h:outputLabel value="Thumbnail">
-                                <h:inputFile value="#{auctionRequestEdit.thumbnail}" required="true"/>
+                                <h:inputFile value="#{auctionRequestEdit.thumbnail}" />
                             </h:outputLabel>
                             <h:outputLabel value="More photos...">
-                                <h:inputFile value="#{auctionRequestEdit.photoOne}" required="true"/>
-                                <h:inputFile value="#{auctionRequestEdit.photoTwo}" required="true"/>
-                                <h:inputFile value="#{auctionRequestEdit.photoThree}" required="true"/>
+                                <h:inputFile value="#{auctionRequestEdit.photoOne}" />
+                                <h:inputFile value="#{auctionRequestEdit.photoTwo}" />
+                                <h:inputFile value="#{auctionRequestEdit.photoThree}" />
                             </h:outputLabel>
                             <h:commandButton styleClass="button" value="Update" action="#{auctionController.update}"/>
                         </h:form>

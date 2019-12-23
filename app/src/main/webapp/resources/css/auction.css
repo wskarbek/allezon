@@ -20,6 +20,13 @@
     float: left;
 }
 
+img.auctionPhoto {
+    height: auto;
+    width: auto;
+    max-width: 25%;
+    max-height: 200px;
+}
+
 #auctionBuy {
     width: 10%;
     float: left;
