@@ -69,7 +69,7 @@ public class AuctionCreator {
         if(price != 0.0) auction.setPrice(price);
         if(!description.equals("")) auction.setDescription(description);
         auctionRepository.update(auction);
-        unlock(id);
+        this.unlock(id);
 
         String location = LOCATION + id + "/";
         for (int i = 0; i < photosList.size(); i++ ) {
@@ -90,7 +90,7 @@ public class AuctionCreator {
 
     public void unlock(Long id) {
         Auction auction = auctionRepository.getAuctionById(id);
-        auction.setEdited(true);
+        auction.setEdited(false);
         auctionRepository.update(auction);
     }
 }
