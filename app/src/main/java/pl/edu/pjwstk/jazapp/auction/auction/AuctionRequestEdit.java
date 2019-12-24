@@ -7,7 +7,7 @@ import javax.servlet.http.Part;
 @Named
 @RequestScoped
 public class AuctionRequestEdit {
-    private Integer id;
+    private Long id;
     private String categoryName;
     private String name;
     private float price;
@@ -82,9 +82,9 @@ public class AuctionRequestEdit {
         this.photoThree = photoThree;
     }
 
-    public Integer getId() { return id; }
+    public Long getId() { return id; }
 
-    public void setId(Integer id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     @Override
     public String toString() {

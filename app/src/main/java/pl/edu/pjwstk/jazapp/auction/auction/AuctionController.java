@@ -2,6 +2,7 @@ package pl.edu.pjwstk.jazapp.auction.auction;
 
 import pl.edu.pjwstk.jazapp.auction.entities.Photo;
 
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -14,8 +15,6 @@ import java.util.List;
 @Named
 @RequestScoped
 public class AuctionController {
-    @Inject
-    private AuctionRequestAdd auctionRequestAdd;
 
     @Inject
     private AuctionRequestEdit auctionRequestEdit;
@@ -26,6 +25,8 @@ public class AuctionController {
     private String error = "";
     private String success = "";
 
+    private Long id;
+
     public String getError() {
         return error;
     }
@@ -34,8 +35,13 @@ public class AuctionController {
         return success;
     }
 
+    /*@PreDestroy
+    public void destroy() {
+        auctionCreator.unlock(id);
+    }*/
+
     public void submit() throws IOException {
-        if(auctionRequestEdit.getId()==null) {
+        if(id==null) {
             add();
         } else {
             update();
@@ -47,11 +53,11 @@ public class AuctionController {
         String name = auctionRequestEdit.getName();
         String categoryName = auctionRequestEdit.getCategoryName();
         float price = auctionRequestEdit.getPrice();
-        String description = auctionRequestAdd.getDescription();
+        String description = auctionRequestEdit.getDescription();
         List<Part> photos = createPhotoList(auctionRequestEdit.getThumbnail(), auctionRequestEdit.getPhotoOne(), auctionRequestEdit.getPhotoTwo(), auctionRequestEdit.getPhotoThree());
 
 
-        auctionCreator.createAuction(
+         auctionCreator.createAuction(
                 name,
                 categoryName,
                 price,
@@ -62,29 +68,9 @@ public class AuctionController {
         context.getExternalContext().redirect("index.xhtml");
     }
 
-    public void oldAdd() throws IOException {
-        System.out.println("Tried to add " + auctionRequestAdd.toString());
-        String name = auctionRequestAdd.getName();
-        String categoryName = auctionRequestAdd.getCategoryName();
-        float price = auctionRequestAdd.getPrice();
-        String description = auctionRequestAdd.getDescription();
-
-
-        auctionCreator.createAuction(
-                name,
-                categoryName,
-                price,
-                description,
-                createPhotoList(auctionRequestAdd.getThumbnail(), auctionRequestAdd.getPhotoOne(), auctionRequestAdd.getPhotoTwo(), auctionRequestAdd.getPhotoThree()));
-
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().redirect("index.xhtml");
-    }
-
     public void update() throws IOException{
-        System.out.println("Nie działam napomusz");
         auctionCreator.updateAuction(
-                auctionRequestEdit.getId(),
+                id,
                 auctionRequestEdit.getName(),
                 auctionRequestEdit.getCategoryName(),
                 auctionRequestEdit.getPrice(),
@@ -92,7 +78,7 @@ public class AuctionController {
                 createPhotoList(auctionRequestEdit.getThumbnail(), auctionRequestEdit.getPhotoOne(), auctionRequestEdit.getPhotoTwo(), auctionRequestEdit.getPhotoThree())
         );
         FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().redirect("auction.xhtml?auctionId="+auctionRequestEdit.getId());
+        context.getExternalContext().redirect("auction.xhtml?auctionId="+id);
     }
 
     public List<Part> createPhotoList(Part thumbnail, Part one, Part two, Part three) {
@@ -102,5 +88,14 @@ public class AuctionController {
         if(two != null) photosList.add(two);
         if(three != null) photosList.add(three);
         return photosList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+        auctionCreator.lock(id);
     }
 }

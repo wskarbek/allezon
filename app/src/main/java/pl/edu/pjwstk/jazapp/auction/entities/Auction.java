@@ -12,7 +12,7 @@ public class Auction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "owner")
@@ -46,6 +46,7 @@ public class Auction {
         this.category = category;
         this.price = price;
         this.description = description;
+        this.isEdited = false;
     }
     public Auction() {}
 
@@ -61,7 +62,7 @@ public class Auction {
         return owner.getUsername();
     }
 
-    public Integer getId() { return id; }
+    public Long getId() { return id; }
 
     public String getIdString() {
         return String.valueOf(id);

@@ -2,7 +2,6 @@ package pl.edu.pjwstk.jazapp.auction.auction;
 
 import pl.edu.pjwstk.jazapp.auction.category.CategoryRepository;
 import pl.edu.pjwstk.jazapp.auction.entities.Auction;
-import pl.edu.pjwstk.jazapp.auction.entities.Category;
 import pl.edu.pjwstk.jazapp.auction.entities.Photo;
 import pl.edu.pjwstk.jazapp.auth.login.LoginSession;
 
@@ -30,13 +29,13 @@ public class AuctionCreator {
     @Inject
     private LoginSession loginSession;
 
-    private Integer auctionID;
+    private Long auctionID;
 
     //Location must exist!
     public static final String LOCATION = "/home/jesieniarz/tmp/"; //Linux
     //public static final String LOCATION = "D:/tmp/" //Windows
 
-    public void createAuction(String name, String categoryName, float price, String description, List<Part> photosList){
+    public void createAuction(String name, String categoryName, float price, String description, List<Part> photosList) {
         auctionID = auctionRepository.add(new Auction(
                 name,
                 loginSession.getCurrentUser(),
@@ -46,7 +45,7 @@ public class AuctionCreator {
 
         String fileName;
         String location = LOCATION;
-        new File(location + Integer.toString(auctionID)).mkdirs();
+        new File(location + Long.toString(auctionID)).mkdirs();
         location += auctionID + "/";
         for (int i = 0; i < photosList.size(); i++ ) {
             fileName = Integer.toString(i);
@@ -60,13 +59,17 @@ public class AuctionCreator {
         }
     }
 
-    public void updateAuction(Integer id, String name, String categoryName, float price, String description, List<Part> photosList){
+    public void updateAuction(Long id, String name, String categoryName, float price, String description, List<Part> photosList){
         Auction auction = auctionRepository.getAuctionById(id);
+        System.out.println(loginSession.getCurrentUser().getUsername());
+        System.out.println(auction.getOwnerName());
+        if(!loginSession.getCurrentUser().getUsername().equals(auction.getOwnerName())) return;
         if(!name.equals("")) auction.setName(name);
         if(!categoryName.equals("")) auction.setCategory(categoryRepository.getCategory(categoryName));
         if(price != 0.0) auction.setPrice(price);
         if(!description.equals("")) auction.setDescription(description);
         auctionRepository.update(auction);
+        unlock(id);
 
         String location = LOCATION + id + "/";
         for (int i = 0; i < photosList.size(); i++ ) {
@@ -77,5 +80,17 @@ public class AuctionCreator {
                 System.out.println(e);
             }
         }
+    }
+
+    public void lock(Long id) {
+        Auction auction = auctionRepository.getAuctionById(id);
+        auction.setEdited(true);
+        auctionRepository.update(auction);
+    }
+
+    public void unlock(Long id) {
+        Auction auction = auctionRepository.getAuctionById(id);
+        auction.setEdited(true);
+        auctionRepository.update(auction);
     }
 }

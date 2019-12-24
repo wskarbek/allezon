@@ -18,7 +18,7 @@ public class AuctionRepository {
     private EntityManager em;
 
     @Transactional
-    public Integer add(Auction auction) {
+    public Long add(Auction auction) {
         em.persist(auction);
         em.flush();
         return auction.getId();
@@ -30,7 +30,7 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public Auction getAuctionById(Integer id) {
+    public Auction getAuctionById(Long id) {
         return em.createQuery("from Auction where id = :id", Auction.class).setParameter("id", id).getSingleResult();
     }
 
@@ -43,4 +43,5 @@ public class AuctionRepository {
     public List<Auction> getAuctionsOfUser(ProfileEnity user) {
         return em.createQuery("from Auction where owner = :owner order by name", Auction.class).setParameter("owner", user).getResultList();
     }
+
 }

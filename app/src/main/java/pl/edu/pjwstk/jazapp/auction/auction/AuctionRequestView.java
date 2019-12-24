@@ -18,14 +18,14 @@ public class AuctionRequestView implements Serializable {
 
     private Auction auction;
 
-    private Integer id;
+    private Long id;
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         auction = auctionRepository.getAuctionById(id);
         this.id = id;
     }
 
-    public Integer getId(){
+    public Long getId(){
         return id;
     }
 
@@ -49,4 +49,8 @@ public class AuctionRequestView implements Serializable {
 
     public Photo getThumbnail() { return auction.getPhoto(); }
 
+    public Boolean getIsEdited() {
+        if (auction!=null) return auction.isEdited();
+        return false;
+    }
 }
