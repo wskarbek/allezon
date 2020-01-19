@@ -12,7 +12,7 @@ public class Branch {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String name;

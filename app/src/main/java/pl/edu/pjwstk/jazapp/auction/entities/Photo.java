@@ -8,7 +8,7 @@ public class Photo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "auction_id")

@@ -9,7 +9,7 @@ public class Parameter {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    private int id;
+    private Long id;
 
     @JoinColumn(name = "name")
     private String name;
